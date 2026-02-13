@@ -1,0 +1,25 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+
+/* Custom Colors for Services Section */
+@theme {
+  /* Teal Colors */
+  --color-teal-50: #f0fdfa;
+  --color-teal-100: #ccfbf1;
+  --color-teal-500: #0e9f8a;
+  --color-teal-600: #0d8f7d;
+  
+  /* Fonts */
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'DM Sans', sans-serif;
+}
+
+/* Base font (only if not already set) */
+body {
+  font-family: var(--font-sans);
+}
+
+/* Serif font class */
+.font-serif {
+  font-family: var(--font-serif);
+}
