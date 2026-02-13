@@ -1,152 +1,185 @@
 import React from 'react';
+import { useInView } from "../hooks/useInView";
 
 const ServicesOverlapSection = () => {
+  const [headerRef, headerInView] = useInView(0.2);
+
   const services = [
     {
       number: '01',
-      tag: 'Custom Design',
-      title: 'Beautiful Dental Websites That Convert',
-      description: "We craft bespoke dental websites that don't just look stunning — they're engineered to turn visitors into booked appointments.",
+      tag: 'General Dentistry',
+      title: 'Complete Oral Health Care for Every Age',
+      description: "From your child's first visit to full-mouth restoration for seniors — Dr. Sanjay Bajaj provides compassionate, thorough dental care that keeps your whole family smiling.",
       features: [
-        'Mobile-First, Lightning Fast',
-        'HIPAA-Compliant Online Forms',
-        'Custom Brand Identity',
-        'Patient Journey Optimization'
+        'Routine Checkups & Cleanings',
+        'Painless Tooth Fillings',
+        'Tooth Extraction & Care',
+        'Gum Disease Treatment',
       ],
       image: 'https://images.unsplash.com/photo-1629909615184-74f495363b67?w=600&q=80',
-      dark: false
+      dark: false,
     },
     {
       number: '02',
-      tag: 'SEO & Marketing',
-      title: 'Dominate Local Search Results',
-      description: 'Get found by patients actively searching for dentists in your area. Our dental SEO strategies have helped practices achieve top Google rankings.',
+      tag: 'Cosmetic Dentistry',
+      title: 'Smile Transformations You',
+      description: 'Our cosmetic treatments are designed to boost your confidence with natural-looking results. Whether it whitening or a complete smile makeover, we craft smiles that last.',
       features: [
-        'Local SEO & Google Business',
-        'Content Marketing Strategy',
-        'Paid Ads (Google & Meta)',
-        'Monthly Analytics Reports'
+        'Professional Teeth Whitening',
+        'Porcelain Veneers',
+        'Crown & Bridge Work',
+        'Complete Smile Design',
       ],
-      image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&q=80',
-      dark: true
+      image: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600&q=80',
+      dark: true,
     },
     {
       number: '03',
-      tag: 'Reputation',
-      title: 'Build 5-Star Reputation Automatically',
-      description: 'Our automated review system helps your practice collect more glowing reviews on Google and Yelp while you focus on patient care.',
+      tag: 'Root Canal & Implants',
+      title: 'Save Teeth. Replace Teeth. Restore Confidence.',
+      description: 'Highly rated for RCT and dental implants, Planet H Dental uses advanced technology to eliminate pain and restore full function. Hundreds of patients trust us for complex procedures.',
       features: [
-        'Automated Review Requests',
-        'Review Response Management',
-        'Reputation Monitoring Dashboard',
-        'Negative Review Handling'
+        'Root Canal Treatment (RCT)',
+        'Single & Full Dental Implants',
+        'Full Mouth Rehabilitation',
+        'Bone Grafting Procedures',
       ],
       image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&q=80',
-      dark: false
+      dark: false,
     },
     {
       number: '04',
-      tag: 'Patient Experience',
-      title: 'Smart Patient Communication Tools',
-      description: 'From online booking to automated appointment reminders, we give your practice the tools to deliver a seamless, modern patient experience.',
+      tag: 'Pediatric & Preventive',
+      title: 'Gentle Care for Little Smiles',
+      description: 'We make dental visits a positive experience for kids. Our preventive approach catches problems early, builds healthy habits, and sets up your child for a lifetime of oral health.',
       features: [
-        'Online Booking Integration',
-        'SMS & Email Reminders',
-        'Virtual Consultation Widgets',
-        'Patient Portal Integration'
+        'Child-Friendly Checkups',
+        'Fluoride & Sealant Treatments',
+        'Early Orthodontic Assessment',
+        'Parent Guidance & Education',
       ],
       image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80',
-      dark: true
-    }
+      dark: true,
+    },
   ];
 
   return (
-    <div style={{ fontFamily: "'Lato','Helvetica Neue',sans-serif", background: "white", paddingTop: 68 }}>
-      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-slate-50">
-        <div className="max-w-7xl mx-auto">
-          {/* Header */}
-          <div className="text-center mb-12 sm:mb-16">
-            <div className="inline-flex items-center gap-2 bg-teal-50 text-teal-600 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold tracking-wide uppercase mb-4 sm:mb-6">
-              <span className="w-1.5 h-1.5 bg-teal-500 rounded-full animate-pulse"></span>
-              What We Do
-            </div>
-            <h2 className="font-serif font-bold text-3xl sm:text-4xl lg:text-5xl text-slate-900 mb-4 sm:mb-6 px-4">
-              Everything Your Dental Practice<br className="hidden sm:block" /> Needs to Grow Online
-            </h2>
-            <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto px-4">
-              From stunning websites to full-funnel marketing — we cover it all.
-            </p>
+    <section style={{ background: "#f8fbff", padding: "80px 24px 100px", fontFamily: "'Lato','Helvetica Neue',sans-serif" }}>
+      <div style={{ maxWidth: 1400, margin: "0 auto" }}>
+        {/* Header */}
+        <div
+          ref={headerRef}
+          style={{
+            textAlign: "center",
+            marginBottom: 60,
+            opacity: headerInView ? 1 : 0,
+            transform: headerInView ? "translateY(0)" : "translateY(30px)",
+            transition: "all 0.7s ease",
+          }}
+        >
+          <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "#e8f5e9", border: "1px solid #c8e6c9", borderRadius: 20, padding: "6px 16px", marginBottom: 16 }}>
+            <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#27ae60", display: "inline-block" }} />
+            <span style={{ fontSize: 12, fontWeight: 700, color: "#1e7e34", textTransform: "uppercase", letterSpacing: 1.5 }}>What We Do</span>
           </div>
+          <h2 style={{ fontSize: "clamp(26px, 3.5vw, 42px)", fontWeight: 900, color: "#1a3a5c", fontFamily: "'Georgia', serif", marginBottom: 14 }}>
+            Everything Your Family Needs, <span style={{ color: "#27ae60" }}>Under One Roof</span>
+          </h2>
+          <p style={{ color: "#5d6d7e", fontSize: 16, maxWidth: 560, margin: "0 auto", lineHeight: 1.75 }}>
+            Planet H Dental offers a complete range of treatments — from routine cleanings to advanced implants — all delivered with care by Dr. Sanjay Bajaj.
+          </p>
+        </div>
 
-          {/* Overlapping Cards Stack */}
-          <div className="relative space-y-4 sm:space-y-6">
-            {services.map((service, index) => (
+        {/* Sticky Overlapping Cards */}
+        <div style={{ position: "relative" }}>
+          {services.map((service, index) => (
+            <div
+              key={index}
+              style={{
+                position: "sticky",
+                top: 80 + index * 14,
+                zIndex: index + 1,
+                background: service.dark ? "#1a3a5c" : "white",
+                color: service.dark ? "white" : "#1a3a5c",
+                borderRadius: 22,
+                boxShadow: "0 12px 50px rgba(0,0,0,0.13)",
+                border: service.dark ? "1px solid rgba(255,255,255,0.08)" : "1px solid #eaf0f6",
+                padding: "44px 50px",
+                marginBottom: 24,
+              }}
+            >
               <div
-                key={index}
-                className={`sticky ${
-                  index === 0 ? 'top-20 sm:top-24' : 
-                  index === 1 ? 'top-24 sm:top-28' : 
-                  index === 2 ? 'top-28 sm:top-32' : 
-                  'top-32 sm:top-36'
-                } ${
-                  service.dark 
-                    ? 'bg-slate-900 text-white' 
-                    : 'bg-white text-slate-900'
-                } rounded-2xl sm:rounded-3xl shadow-xl border ${
-                  service.dark ? 'border-slate-800' : 'border-slate-100'
-                } p-6 sm:p-8 lg:p-12 transition-transform hover:scale-[1.01] min-h-[400px] sm:min-h-[420px]`}
-                style={{ zIndex: index + 1 }}
+                style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center" }}
+                className="overlap-inner"
               >
-                <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
-                  {/* Content */}
-                  <div>
-                    <div className={`font-serif text-6xl sm:text-7xl lg:text-8xl font-black mb-3 sm:mb-4 ${
-                      service.dark ? 'text-teal-500/20' : 'text-teal-500/15'
-                    }`}>
-                      {service.number}
-                    </div>
-                    <div className="text-xs sm:text-sm font-bold tracking-wider uppercase text-teal-500 mb-2 sm:mb-3">
-                      {service.tag}
-                    </div>
-                    <h3 className="font-serif font-bold text-xl sm:text-2xl lg:text-3xl mb-3 sm:mb-4">
-                      {service.title}
-                    </h3>
-                    <p className={`text-sm sm:text-base leading-relaxed mb-4 sm:mb-6 ${
-                      service.dark ? 'text-slate-300' : 'text-slate-600'
-                    }`}>
-                      {service.description}
-                    </p>
-                    <ul className="space-y-2 sm:space-y-3">
-                      {service.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-center gap-2 sm:gap-3 text-sm sm:text-base font-medium">
-                          <div className="w-5 h-5 sm:w-6 sm:h-6 bg-teal-500 rounded-full flex items-center justify-center flex-shrink-0">
-                            <svg className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                            </svg>
-                          </div>
-                          <span className={service.dark ? 'text-slate-200' : 'text-slate-800'}>
-                            {feature}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
+                {/* Content */}
+                <div>
+                  <div style={{
+                    fontFamily: "'Georgia', serif",
+                    fontSize: 80,
+                    fontWeight: 900,
+                    lineHeight: 1,
+                    marginBottom: 8,
+                    color: service.dark ? "rgba(39,174,96,0.18)" : "rgba(26,82,118,0.07)",
+                  }}>
+                    {service.number}
                   </div>
+                  <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", color: "#27ae60", marginBottom: 10 }}>
+                    {service.tag}
+                  </div>
+                  <h3 style={{
+                    fontSize: "clamp(18px, 2.2vw, 26px)",
+                    fontWeight: 900,
+                    fontFamily: "'Georgia', serif",
+                    marginBottom: 14,
+                    lineHeight: 1.3,
+                    color: service.dark ? "white" : "#1a3a5c",
+                  }}>
+                    {service.title}
+                  </h3>
+                  <p style={{
+                    fontSize: 15,
+                    lineHeight: 1.8,
+                    marginBottom: 24,
+                    color: service.dark ? "rgba(255,255,255,0.72)" : "#5d6d7e",
+                  }}>
+                    {service.description}
+                  </p>
+                  <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 10 }}>
+                    {service.features.map((feature, idx) => (
+                      <li key={idx} style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 14, fontWeight: 600, color: service.dark ? "rgba(255,255,255,0.85)" : "#3d4e63" }}>
+                        <div style={{ width: 22, height: 22, background: "#27ae60", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                          <svg width="12" height="12" viewBox="0 0 20 20" fill="white">
+                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                          </svg>
+                        </div>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
-                  {/* Image */}
-                  <div className="rounded-xl sm:rounded-2xl overflow-hidden aspect-[4/3] bg-slate-200">
-                    <img 
-                      src={service.image} 
-                      alt={service.title}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
+                {/* Image */}
+                <div style={{ borderRadius: 16, overflow: "hidden", aspectRatio: "4/3", boxShadow: "0 8px 30px rgba(0,0,0,0.15)" }}>
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.5s ease" }}
+                    onError={e => { e.target.style.background = "#eaf0f6"; }}
+                  />
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
-      </section>
-    </div>
+      </div>
+
+      <style>{`
+        @media (max-width: 900px) {
+          .overlap-inner { grid-template-columns: 1fr !important; gap: 28px !important; }
+          [style*="padding: \"44px 50px\""] { padding: 28px 22px !important; }
+        }
+      `}</style>
+    </section>
   );
 };
 

@@ -1,139 +1,179 @@
-import React from 'react'
-import { useState } from "react";
-import { ChevronLeft, ChevronRight } from "../components/Icons";
+import React, { useState } from 'react'
 import { useInView } from "../hooks/useInView";
+import { CTASection } from "../components/SharedSections";
 
-const OUR_WORK_PER_PAGE = 3;
-
-const PortfolioCard = ({ item, index }) => {
+const CaseCard = ({ item, index }) => {
   const [ref, inView] = useInView(0.1);
-  const [hover, setHover] = useState(false);
   return (
-    <div ref={ref} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} style={{
-      borderRadius: 14, overflow: "hidden",
-      boxShadow: hover ? "0 20px 50px rgba(0,0,0,0.15)" : "0 4px 20px rgba(0,0,0,0.07)",
+    <div ref={ref} style={{
+      background: "white",
+      borderRadius: 18,
+      overflow: "hidden",
+      boxShadow: "0 4px 24px rgba(0,0,0,0.08)",
       border: "1px solid #eaf0f6",
       opacity: inView ? 1 : 0,
-      transform: inView ? (hover ? "translateY(-6px)" : "translateY(0)") : "translateY(30px)",
-      transition: `all 0.5s ease ${index * 0.1}s`,
-      cursor: "pointer",
+      transform: inView ? "translateY(0)" : "translateY(32px)",
+      transition: `all 0.6s ease ${index * 0.1}s`,
     }}>
-      <div style={{ position: "relative", overflow: "hidden" }}>
-        <img src={item.image} alt={item.title}
-          style={{ width: "100%", height: 200, objectFit: "cover", display: "block", transform: hover ? "scale(1.05)" : "scale(1)", transition: "transform 0.5s ease" }}
-          onError={e => { e.target.style.background = item.color; e.target.style.height = "200px"; }}
+      {/* Image */}
+      <div style={{ position: "relative", overflow: "hidden", height: 220 }}>
+        <img
+          src={item.image}
+          alt={item.name}
+          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+          onError={e => { e.target.style.background = item.bg; }}
         />
-        <div style={{ position: "absolute", top: 12, left: 12, background: "#1a5276", color: "white", fontSize: 11, fontWeight: 700, padding: "4px 12px", borderRadius: 20, letterSpacing: 0.5 }}>{item.category}</div>
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(26,42,58,0.75) 0%, transparent 55%)" }} />
+        <div style={{ position: "absolute", bottom: 16, left: 18 }}>
+          <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase", color: "rgba(255,255,255,0.75)", marginBottom: 3 }}>{item.type}</div>
+          <div style={{ fontWeight: 900, fontSize: 18, color: "white", fontFamily: "'Georgia', serif" }}>{item.name}</div>
+        </div>
       </div>
-      <div style={{ padding: "24px", background: "white" }}>
-        <h3 style={{ fontWeight: 800, fontSize: 16.5, color: "#1a3a5c", marginBottom: 6 }}>{item.title}</h3>
-        <p style={{ color: "#7f8c8d", fontSize: 13.5, marginBottom: 14 }}>📍 {item.location}</p>
-        <div style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "#e8f5e9", borderRadius: 20, padding: "6px 14px" }}>
-          <span style={{ fontSize: 14 }}>📈</span>
-          <span style={{ color: "#1e7e34", fontWeight: 700, fontSize: 13.5 }}>{item.result}</span>
+
+      {/* Body */}
+      <div style={{ padding: "22px 24px" }}>
+        <p style={{ color: "#5d6d7e", fontSize: 14.5, lineHeight: 1.75, marginBottom: 20 }}>{item.desc}</p>
+
+        {/* Before / After */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 16 }}>
+          <div style={{ background: "#fef7f0", border: "1px solid #fde0c4", borderRadius: 10, padding: "12px 14px" }}>
+            <div style={{ fontSize: 11, fontWeight: 700, color: "#c0713a", textTransform: "uppercase", letterSpacing: 1, marginBottom: 4 }}>Before</div>
+            <div style={{ fontSize: 13.5, color: "#5d4037", fontWeight: 600 }}>{item.before}</div>
+          </div>
+          <div style={{ background: "#f0fdf4", border: "1px solid #bbf7d0", borderRadius: 10, padding: "12px 14px" }}>
+            <div style={{ fontSize: 11, fontWeight: 700, color: "#166534", textTransform: "uppercase", letterSpacing: 1, marginBottom: 4 }}>After</div>
+            <div style={{ fontSize: 13.5, color: "#14532d", fontWeight: 600 }}>{item.after}</div>
+          </div>
+        </div>
+
+        {/* Treatment tags */}
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+          {item.treatments.map((t, i) => (
+            <span key={i} style={{ fontSize: 12, fontWeight: 600, background: "#f0f4f8", color: "#3d4e63", padding: "4px 11px", borderRadius: 20, border: "1px solid #e2e8f0" }}>{t}</span>
+          ))}
         </div>
       </div>
     </div>
   );
 };
 
-const OurWorkPage = ({ setPage }) => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const [filter, setFilter] = useState("All");
+const OurWorkPage = () => {
   const [headerRef, headerInView] = useInView(0.2);
+  const [statsRef, statsInView] = useInView(0.2);
 
-  const portfolioItems = [
-    { title: "Sunrise Family Dentistry", category: "Custom Website", location: "Denver, CO", result: "+63% New Patients", image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=480&q=80", color: "#e8f5e9" },
-    { title: "Pacific Coast Dental", category: "SEO + Content", location: "San Diego, CA", result: "Page 1 in 4 Months", image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=480&q=80", color: "#e3f2fd" },
-    { title: "Greenfield Orthodontics", category: "Paid Ads", location: "Austin, TX", result: "3x ROI on Ad Spend", image: "https://images.unsplash.com/photo-1629909615184-74f495363b67?w=480&q=80", color: "#fff3e0" },
-    { title: "Brooklyn Smile Studio", category: "Custom Website", location: "Brooklyn, NY", result: "+88% Website Traffic", image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=480&q=80", color: "#fce4ec" },
-    { title: "Aspen Dental Arts", category: "Full Package", location: "Phoenix, AZ", result: "+41% Appointment Bookings", image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=480&q=80", color: "#ede7f6" },
-    { title: "Lakeside Pediatric Dentistry", category: "SEO + Content", location: "Chicago, IL", result: "#1 Ranking Local Keywords", image: "https://images.unsplash.com/photo-1629909615184-74f495363b67?w=480&q=80", color: "#e0f7fa" },
-    { title: "Metro Dental Specialists", category: "Paid Ads", location: "Atlanta, GA", result: "$18 Cost Per New Lead", image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=480&q=80", color: "#f3e5f5" },
-    { title: "Harbor View Dentistry", category: "Full Package", location: "Seattle, WA", result: "+120% Review Count", image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=480&q=80", color: "#e8f5e9" },
-    { title: "Riverside Cosmetic Dental", category: "Custom Website", location: "Nashville, TN", result: "Featured in Dental Times", image: "https://images.unsplash.com/photo-1629909615184-74f495363b67?w=480&q=80", color: "#fff9c4" },
+  const cases = [
+    {
+      name: "Rajan Khanna",
+      type: "Smile Makeover",
+      image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=560&q=80",
+      bg: "#e8f5e9",
+      desc: "Rajan came in with severe discolouration and uneven spacing. After a thorough assessment, Dr. Bajaj recommended veneers and whitening for a complete transformation.",
+      before: "Stained, uneven teeth with visible gaps",
+      after: "Bright, aligned smile — boost in confidence",
+      treatments: ["Porcelain Veneers", "Whitening", "Reshaping"],
+    },
+    {
+      name: "Meena Sharma",
+      type: "Root Canal & Crown",
+      image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=560&q=80",
+      bg: "#e3f2fd",
+      desc: "Meena had been avoiding treatment for months due to fear of pain. With our gentle RCT approach and modern anaesthesia, she experienced zero discomfort throughout.",
+      before: "Severe tooth pain, afraid of dental visits",
+      after: "Pain-free, saved her natural tooth with crown",
+      treatments: ["Root Canal (RCT)", "Dental Crown", "Post Treatment"],
+    },
+    {
+      name: "Deepak Malhotra",
+      type: "Full Mouth Implants",
+      image: "https://images.unsplash.com/photo-1629909615184-74f495363b67?w=560&q=80",
+      bg: "#fff3e0",
+      desc: "Deepak had been living with multiple missing teeth for over 5 years, affecting his confidence and ability to eat comfortably. We restored his full bite with implants.",
+      before: "Multiple missing teeth, difficulty eating",
+      after: "Complete set of permanent implants, full function",
+      treatments: ["Dental Implants", "Bone Grafting", "Full Rehabilitation"],
+    },
+    {
+      name: "Ananya Singh",
+      type: "Orthodontic Treatment",
+      image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=560&q=80",
+      bg: "#fce4ec",
+      desc: "Ananya wanted straighter teeth before her wedding. Dr. Bajaj created a customised orthodontic plan that delivered beautiful alignment within the timeline she needed.",
+      before: "Crowded front teeth, misaligned bite",
+      after: "Perfectly aligned smile, ready for her big day",
+      treatments: ["Braces", "Retainers", "Cosmetic Finishing"],
+    },
+    {
+      name: "Vijay Bhatia",
+      type: "Preventive & Restoration",
+      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=560&q=80",
+      bg: "#ede7f6",
+      desc: "Vijay hadn't visited a dentist in nearly a decade. We built a full care plan — from deep cleaning to fillings — restoring his oral health and preventing further damage.",
+      before: "Tartar buildup, multiple cavities, gum issues",
+      after: "Fully restored oral health, regular care plan set",
+      treatments: ["Scaling & Polishing", "Multiple Fillings", "Gum Treatment"],
+    },
+    {
+      name: "Priti Agarwal",
+      type: "Pediatric Care",
+      image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=560&q=80",
+      bg: "#e0f7fa",
+      desc: "Priti's 7-year-old was terrified of dentists. Our child-friendly approach made him look forward to visits. Early intervention prevented issues that would've needed major treatment later.",
+      before: "Dental anxiety, early signs of decay",
+      after: "Regular happy visits, healthy growing teeth",
+      treatments: ["Pediatric Checkup", "Fluoride Treatment", "Sealants"],
+    },
   ];
 
-  const categories = ["All", "Custom Website", "SEO + Content", "Paid Ads", "Full Package"];
-  const filtered = filter === "All" ? portfolioItems : portfolioItems.filter(p => p.category === filter);
-  const totalPages = Math.ceil(filtered.length / OUR_WORK_PER_PAGE);
-  const paginated = filtered.slice((currentPage - 1) * OUR_WORK_PER_PAGE, currentPage * OUR_WORK_PER_PAGE);
+  const stats = [
+    { value: "500+", label: "Patients Treated" },
+    { value: "4.6★", label: "Google Rating" },
+    { value: "18+", label: "5-Star Reviews" },
+    { value: "100%", label: "Follow-up Care" },
+  ];
 
   return (
     <div style={{ fontFamily: "'Lato','Helvetica Neue',sans-serif", background: "white", paddingTop: 68 }}>
-      <section ref={headerRef} style={{ padding: "70px 24px 50px", background: "linear-gradient(135deg, #f8fbff, #f0fdf4)", textAlign: "center" }}>
-        <div style={{ maxWidth: 640, margin: "0 auto", opacity: headerInView ? 1 : 0, transform: headerInView ? "translateY(0)" : "translateY(30px)", transition: "all 0.7s ease" }}>
-          <div style={{ display: "inline-block", background: "#e8f5e9", color: "#1e7e34", fontWeight: 700, fontSize: 12, letterSpacing: 2, textTransform: "uppercase", padding: "6px 16px", borderRadius: 20, marginBottom: 16 }}>Portfolio</div>
-          <h1 style={{ fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 900, color: "#1a3a5c", fontFamily: "'Georgia', serif", marginBottom: 14 }}>
-            We Help Dentists Grow With Better Websites
+      {/* Header */}
+      <section ref={headerRef} style={{ padding: "80px 24px 60px", background: "linear-gradient(135deg, #f8fbff, #f0fdf4)", textAlign: "center" }}>
+        <div style={{ maxWidth: 660, margin: "0 auto", opacity: headerInView ? 1 : 0, transform: headerInView ? "translateY(0)" : "translateY(30px)", transition: "all 0.7s ease" }}>
+          <div style={{ display: "inline-block", background: "#e8f5e9", color: "#1e7e34", fontWeight: 700, fontSize: 12, letterSpacing: 2, textTransform: "uppercase", padding: "6px 16px", borderRadius: 20, marginBottom: 16 }}>Patient Stories</div>
+          <h1 style={{ fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 900, color: "#1a3a5c", fontFamily: "'Georgia', serif", marginBottom: 16 }}>
+            Real Patients, Real Transformations
           </h1>
-          <p style={{ color: "#5d6d7e", fontSize: 16, lineHeight: 1.75 }}>
-            Real practices, real results. Explore our portfolio and see what's possible for your practice.
+          <p style={{ color: "#5d6d7e", fontSize: 17, lineHeight: 1.8 }}>
+            Every smile has a story. Here are some of the patients Dr. Sanjay Bajaj and the Planet H Dental team have helped transform — from first visit to final result.
           </p>
         </div>
       </section>
 
-      <section style={{ padding: "50px 24px 80px", background: "white" }}>
+      {/* Stats bar */}
+      <section ref={statsRef} style={{ background: "#1a3a5c", padding: "28px 24px" }}>
+        <div style={{ maxWidth: 900, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 10, textAlign: "center" }} className="work-stats">
+          {stats.map((s, i) => (
+            <div key={i} style={{ opacity: statsInView ? 1 : 0, transform: statsInView ? "translateY(0)" : "translateY(20px)", transition: `all 0.5s ease ${i * 0.1}s` }}>
+              <div style={{ fontSize: "clamp(24px,3vw,36px)", fontWeight: 900, color: "#27ae60" }}>{s.value}</div>
+              <div style={{ fontSize: 12, fontWeight: 600, color: "rgba(255,255,255,0.6)", textTransform: "uppercase", letterSpacing: 1, marginTop: 4 }}>{s.label}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Cases Grid */}
+      <section style={{ padding: "60px 24px 80px", background: "white" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-          {/* Filter tabs */}
-          <div style={{ display: "flex", gap: 8, marginBottom: 40, overflowX: "auto", paddingBottom: 8, justifyContent: "center", flexWrap: "wrap" }}>
-            {categories.map(cat => (
-              <button key={cat} onClick={() => { setFilter(cat); setCurrentPage(1); }} style={{
-                padding: "8px 20px", borderRadius: 20, fontSize: 13.5, fontWeight: 700,
-                background: filter === cat ? "#1a5276" : "white",
-                color: filter === cat ? "white" : "#3d4e63",
-                border: "2px solid " + (filter === cat ? "#1a5276" : "#dde6ed"),
-                cursor: "pointer", transition: "all 0.2s", whiteSpace: "nowrap",
-              }}>{cat}</button>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 28 }} className="cases-grid">
+            {cases.map((item, i) => (
+              <CaseCard key={i} item={item} index={i} />
             ))}
-          </div>
-
-          {/* Grid */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 28 }} className="portfolio-grid">
-            {paginated.map((item, i) => (
-              <PortfolioCard key={item.title + i} item={item} index={i} />
-            ))}
-          </div>
-
-          {/* Pagination */}
-          {totalPages > 1 && (
-            <>
-              <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 8, marginTop: 48 }}>
-                <button onClick={() => setCurrentPage(p => Math.max(1, p - 1))} disabled={currentPage === 1}
-                  style={{ width: 38, height: 38, borderRadius: "50%", border: "1px solid #ddd", background: "white", cursor: currentPage === 1 ? "not-allowed" : "pointer", display: "flex", alignItems: "center", justifyContent: "center", opacity: currentPage === 1 ? 0.4 : 1 }}>
-                  <ChevronLeft />
-                </button>
-                {[...Array(totalPages)].map((_, idx) => (
-                  <button key={idx} onClick={() => setCurrentPage(idx + 1)} style={{
-                    width: 38, height: 38, borderRadius: "50%",
-                    border: currentPage === idx + 1 ? "2px solid #1a5276" : "1px solid #ddd",
-                    background: currentPage === idx + 1 ? "#1a5276" : "white",
-                    color: currentPage === idx + 1 ? "white" : "#3d4e63",
-                    cursor: "pointer", fontWeight: 700, fontSize: 14,
-                  }}>{idx + 1}</button>
-                ))}
-                <button onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))} disabled={currentPage === totalPages}
-                  style={{ width: 38, height: 38, borderRadius: "50%", border: "1px solid #ddd", background: "white", cursor: currentPage === totalPages ? "not-allowed" : "pointer", display: "flex", alignItems: "center", justifyContent: "center", opacity: currentPage === totalPages ? 0.4 : 1 }}>
-                  <ChevronRight />
-                </button>
-              </div>
-              <p style={{ textAlign: "center", color: "#7f8c8d", fontSize: 13, marginTop: 10 }}>
-                Showing {(currentPage - 1) * OUR_WORK_PER_PAGE + 1}–{Math.min(currentPage * OUR_WORK_PER_PAGE, filtered.length)} of {filtered.length} projects
-              </p>
-            </>
-          )}
-
-          <div style={{ textAlign: "center", marginTop: 48 }}>
-            <button onClick={() => setPage("Contact")} style={{ background: "#e67e22", color: "white", padding: "14px 36px", borderRadius: 8, fontWeight: 700, fontSize: 15, border: "none", cursor: "pointer", boxShadow: "0 6px 20px rgba(230,126,34,0.35)" }}>
-              Start Your Project Today →
-            </button>
           </div>
         </div>
       </section>
 
+      <CTASection />
+
       <style>{`
-        @media (max-width: 900px) { .portfolio-grid { grid-template-columns: repeat(2,1fr) !important; } }
-        @media (max-width: 560px) { .portfolio-grid { grid-template-columns: 1fr !important; } }
+        @media (max-width: 960px) { .cases-grid { grid-template-columns: repeat(2,1fr) !important; } }
+        @media (max-width: 580px) { .cases-grid { grid-template-columns: 1fr !important; } .work-stats { grid-template-columns: repeat(2,1fr) !important; } }
       `}</style>
     </div>
   );

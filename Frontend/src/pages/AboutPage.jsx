@@ -1,26 +1,35 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import { CTASection } from "../components/SharedSections";
 import { useInView } from "../hooks/useInView";
+import { useCounter } from "../hooks/useInView";
 
-const AboutPage = ({ setPage }) => {
+const AboutPage = () => {
+  const navigate = useNavigate();
   const [headerRef, headerInView] = useInView(0.2);
   const [teamRef, teamInView] = useInView(0.15);
   const [valuesRef, valuesInView] = useInView(0.15);
+  const [statsRef, statsInView] = useInView(0.3);
+
+  const cRating = useCounter(46, 1800, statsInView);
+  const cReviews = useCounter(18, 1600, statsInView);
+  const cServices = useCounter(10, 1400, statsInView);
+  const cSatisfaction = useCounter(100, 2000, statsInView);
 
   const team = [
-    { name: "Alex Rivera", role: "CEO & Founder", emoji: "👨‍💼", bio: "15+ years in dental marketing. Built Strategix from the ground up after seeing how poorly most agencies serve dental clients.", badge: "Founder" },
-    { name: "Jessica Park", role: "Head of Web Design", emoji: "👩‍🎨", bio: "Award-winning designer who's built 500+ dental websites. She believes great design is the foundation of patient conversion.", badge: "Design Lead" },
-    { name: "Marcus Thompson", role: "SEO Director", emoji: "👨‍💻", bio: "Data-obsessed SEO strategist who has helped over 300 dental practices dominate their local search results.", badge: "SEO Expert" },
-    { name: "Lisa Chen", role: "Client Success Manager", emoji: "👩‍💼", bio: "Your direct line to results. Lisa ensures every client feels heard, supported, and sees real growth every month.", badge: "Client Champion" },
+    { name: "Dr. Sanjay Bajaj", role: "Chief Dental Surgeon & Founder", emoji: "👨‍⚕️", bio: "Expert in RCT, dental implants, and full-mouth rehabilitation. Known for his calm, gentle approach and exceptional outcomes.", badge: "Founder" },
+    { name: "Dr. Priya Sharma", role: "Cosmetic Dental Specialist", emoji: "👩‍⚕️", bio: "Specializes in smile makeovers, veneers, and teeth whitening. Helps patients achieve the confident smile they've always wanted.", badge: "Cosmetics" },
+    { name: "Dr. Ankit Verma", role: "Oral & Maxillofacial Surgeon", emoji: "🦷", bio: "Expert in complex extractions, bone grafting, and advanced implant procedures. Passionate about pain-free dentistry.", badge: "Surgery" },
+    { name: "Sunita Gupta", role: "Patient Coordinator", emoji: "🩺", bio: "Your friendly first point of contact. Sunita ensures every patient feels welcome, informed, and comfortable from day one.", badge: "Care Team" },
   ];
 
   const values = [
-    { icon: "🤝", title: "Honest Relationships", desc: "We set realistic expectations from day one and never promise results we can't deliver. Trust is everything." },
-    { icon: "⚡", title: "Fast Support", desc: "Most tickets resolved same day. You'll always speak to a real person who knows your account." },
-    { icon: "🎯", title: "Results First", desc: "We measure our success by your growth. Every strategy decision is guided by data, not guesswork." },
-    { icon: "🔒", title: "No Long Contracts", desc: "Month-to-month for most services because we're confident you'll stay when you see the results." },
-    { icon: "🦷", title: "Dental Specialists", desc: "We only work with dental practices. This focus means unmatched expertise and better outcomes." },
-    { icon: "💡", title: "Constant Innovation", desc: "We stay ahead of Google's changes so you don't have to. Your strategy evolves as the market does." },
+    { icon: "💚", title: "Patient-First Care", desc: "Every treatment decision is made with your comfort and long-term oral health as the top priority. You're family here." },
+    { icon: "⚡", title: "Painless Procedures", desc: "We use modern anesthesia and gentle techniques so even complex procedures like RCT are comfortable and stress-free." },
+    { icon: "🔬", title: "Advanced Technology", desc: "Digital X-rays, modern implant systems, and up-to-date sterilization protocols ensure safe, precise, effective treatment." },
+    { icon: "💬", title: "Clear Communication", desc: "We explain every step in plain language, so you always know exactly what's happening and what to expect." },
+    { icon: "🦷", title: "Complete Under One Roof", desc: "From routine cleanings to full-mouth restoration — we handle everything so you don't need to visit multiple specialists." },
+    { icon: "⭐", title: "Proven Results", desc: "Rated 4.6 stars on Google with 18+ reviews. Our patients consistently praise our results and caring approach." },
   ];
 
   return (
@@ -30,14 +39,18 @@ const AboutPage = ({ setPage }) => {
         <div style={{ maxWidth: 680, margin: "0 auto", opacity: headerInView ? 1 : 0, transform: headerInView ? "translateY(0)" : "translateY(30px)", transition: "all 0.7s ease" }}>
           <div style={{ display: "inline-block", background: "#e8f5e9", color: "#1e7e34", fontWeight: 700, fontSize: 12, letterSpacing: 2, textTransform: "uppercase", padding: "6px 16px", borderRadius: 20, marginBottom: 16 }}>About Us</div>
           <h1 style={{ fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 900, color: "#1a3a5c", fontFamily: "'Georgia', serif", marginBottom: 16 }}>
-            The Dental Marketing Agency That Actually Cares
+            The Dental Clinic That Truly Cares
           </h1>
           <p style={{ color: "#5d6d7e", fontSize: 17, lineHeight: 1.8, marginBottom: 28 }}>
-            We started Strategix because dental practices deserve a marketing partner who speaks their language, responds fast, and delivers honest results — without the typical agency runaround.
+            Planet H Dental was founded on one belief: every patient deserves gentle, expert dental care without fear or discomfort. Under Dr. Sanjay Bajaj's leadership, we've built a practice Rohini trusts.
           </p>
           <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-            <button onClick={() => setPage("Contact")} style={{ background: "#e67e22", color: "white", padding: "12px 28px", borderRadius: 8, fontWeight: 700, fontSize: 14, border: "none", cursor: "pointer" }}>Work With Us</button>
-            <button onClick={() => setPage("Services")} style={{ background: "white", color: "#1a5276", padding: "12px 24px", borderRadius: 8, fontWeight: 700, fontSize: 14, border: "2px solid #1a5276", cursor: "pointer" }}>See Services</button>
+            <button onClick={() => navigate("/contact")} style={{ background: "#e67e22", color: "white", padding: "12px 28px", borderRadius: 8, fontWeight: 700, fontSize: 14, border: "none", cursor: "pointer" }}>
+              Book Appointment
+            </button>
+            <button onClick={() => navigate("/services")} style={{ background: "white", color: "#1a5276", padding: "12px 24px", borderRadius: 8, fontWeight: 700, fontSize: 14, border: "2px solid #1a5276", cursor: "pointer" }}>
+              See Services
+            </button>
           </div>
         </div>
       </section>
@@ -46,24 +59,33 @@ const AboutPage = ({ setPage }) => {
       <section style={{ padding: "80px 24px", background: "white" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 70, alignItems: "center" }} className="story-grid">
           <div>
-            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=560&q=80" alt="Our Team"
+            <img
+              src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=560&q=80"
+              alt="Dr. Sanjay Bajaj"
               style={{ width: "100%", borderRadius: 16, boxShadow: "0 20px 60px rgba(0,0,0,0.12)" }}
-              onError={e => { e.target.src = "https://images.unsplash.com/photo-1551434678-e076c223a692?w=560&q=80"; }}
+              onError={e => { e.target.src = "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=560&q=80"; }}
             />
           </div>
           <div>
-            <h2 style={{ fontSize: "clamp(24px, 3vw, 36px)", fontWeight: 900, color: "#1a3a5c", fontFamily: "'Georgia', serif", marginBottom: 20 }}>Built By Dental Marketing Veterans</h2>
+            <h2 style={{ fontSize: "clamp(24px, 3vw, 36px)", fontWeight: 900, color: "#1a3a5c", fontFamily: "'Georgia', serif", marginBottom: 20 }}>Built By a Dentist Who Cares</h2>
             <p style={{ color: "#5d6d7e", fontSize: 16, lineHeight: 1.85, marginBottom: 20 }}>
-              Founded in 2009, Strategix started with a simple idea: dental practices deserve marketing that works as hard as they do. We've grown to serve over 900 practices across North America, and our team of 40+ specialists is entirely focused on one industry: yours.
+              Planet H Dental was established by Dr. Sanjay Bajaj with a vision to provide world-class dental care to the residents of Rohini and surrounding areas. Located in Sector 18B, we have grown into one of Delhi's most trusted dental practices.
             </p>
             <p style={{ color: "#5d6d7e", fontSize: 16, lineHeight: 1.85, marginBottom: 28 }}>
-              We don't work with car dealerships, law firms, or restaurants. Just dentists. This singular focus means we know exactly what works, what doesn't, and how to get you more patients fast.
+              We specialize in everything from simple fillings to complex implant procedures, all performed with the latest technology and a genuinely caring touch. Our patients consistently praise us for our gentle approach and outstanding results.
             </p>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
-              {[["900+", "Practices Served"], ["15", "Years in Business"], ["40+", "Team Members"], ["98%", "Client Retention"]].map(([n, l]) => (
-                <div key={l} style={{ background: "#f8fbff", borderRadius: 10, padding: "18px", border: "1px solid #eaf0f6" }}>
-                  <div style={{ fontSize: 28, fontWeight: 900, color: "#27ae60" }}>{n}</div>
-                  <div style={{ fontSize: 13, color: "#5d6d7e", fontWeight: 600 }}>{l}</div>
+
+            {/* Animated Stats */}
+            <div ref={statsRef} style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+              {[
+                { value: (cRating / 10).toFixed(1) + "★", label: "Google Rating" },
+                { value: cReviews + "+", label: "Patient Reviews" },
+                { value: cServices + "+", label: "Services Offered" },
+                { value: cSatisfaction + "%", label: "Patient Satisfaction" },
+              ].map((s, i) => (
+                <div key={s.label} style={{ background: "#f8fbff", borderRadius: 10, padding: "18px", border: "1px solid #eaf0f6", opacity: statsInView ? 1 : 0, transform: statsInView ? "translateY(0)" : "translateY(20px)", transition: `all 0.5s ease ${i * 0.1}s` }}>
+                  <div style={{ fontSize: 28, fontWeight: 900, color: "#27ae60" }}>{s.value}</div>
+                  <div style={{ fontSize: 13, color: "#5d6d7e", fontWeight: 600 }}>{s.label}</div>
                 </div>
               ))}
             </div>
@@ -76,7 +98,7 @@ const AboutPage = ({ setPage }) => {
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 50 }}>
             <div style={{ display: "inline-block", background: "#e3f2fd", color: "#1565c0", fontWeight: 700, fontSize: 12, letterSpacing: 2, textTransform: "uppercase", padding: "6px 16px", borderRadius: 20, marginBottom: 14 }}>Our Team</div>
-            <h2 style={{ fontSize: "clamp(24px, 3vw, 36px)", fontWeight: 900, color: "#1a3a5c", fontFamily: "'Georgia', serif" }}>The People Behind Your Growth</h2>
+            <h2 style={{ fontSize: "clamp(24px, 3vw, 36px)", fontWeight: 900, color: "#1a3a5c", fontFamily: "'Georgia', serif" }}>The People Behind Your Smile</h2>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 24 }} className="team-grid">
             {team.map((member, i) => (
@@ -103,7 +125,7 @@ const AboutPage = ({ setPage }) => {
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 50 }}>
             <div style={{ display: "inline-block", background: "#fff3e0", color: "#e65100", fontWeight: 700, fontSize: 12, letterSpacing: 2, textTransform: "uppercase", padding: "6px 16px", borderRadius: 20, marginBottom: 14 }}>Our Values</div>
-            <h2 style={{ fontSize: "clamp(24px, 3vw, 36px)", fontWeight: 900, color: "#1a3a5c", fontFamily: "'Georgia', serif" }}>Why Dentists Trust Us</h2>
+            <h2 style={{ fontSize: "clamp(24px, 3vw, 36px)", fontWeight: 900, color: "#1a3a5c", fontFamily: "'Georgia', serif" }}>Why Patients Trust Planet H Dental</h2>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }} className="values-grid">
             {values.map((v, i) => (
@@ -123,7 +145,8 @@ const AboutPage = ({ setPage }) => {
         </div>
       </section>
 
-      <CTASection setPage={setPage} />
+      <CTASection />
+
       <style>{`
         @media (max-width: 900px) {
           .story-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
