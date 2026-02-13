@@ -1,10 +1,13 @@
-import React from 'react'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { StarIcon } from "./Icons";
 import { useInView } from "../hooks/useInView";
 
 // ─── CTA SECTION ──────────────────────────────────────────────────────────────
-export const CTASection = ({ setPage }) => {
+export const CTASection = () => {
   const [ref, inView] = useInView(0.2);
+  const navigate = useNavigate();
+  
   return (
     <section ref={ref} style={{
       padding: "80px 24px",
@@ -22,14 +25,14 @@ export const CTASection = ({ setPage }) => {
             Ready to Grow Your Practice?
           </h2>
           <p style={{ color: "rgba(255,255,255,0.82)", fontSize: 17, lineHeight: 1.75, marginBottom: 36 }}>
-            Join 900+ dental practices who trust GreatDental for their online presence. No long-term contracts. Just results.
+            Join 900+ dental practices who trust Strategix for their online presence. No long-term contracts. Just results.
           </p>
           <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
-            <button onClick={() => setPage("Contact")} style={{ background: "#e67e22", color: "white", padding: "15px 36px", borderRadius: 8, fontWeight: 700, fontSize: 16, border: "none", cursor: "pointer", boxShadow: "0 6px 24px rgba(230,126,34,0.45)" }}>
+            <button onClick={() => navigate("/contact")} style={{ background: "#e67e22", color: "white", padding: "15px 36px", borderRadius: 8, fontWeight: 700, fontSize: 16, border: "none", cursor: "pointer", boxShadow: "0 6px 24px rgba(230,126,34,0.45)" }}>
               Talk To Our Team
             </button>
-            <a href="tel:7203997071" style={{ background: "rgba(255,255,255,0.12)", color: "white", padding: "15px 28px", borderRadius: 8, fontWeight: 700, fontSize: 15, border: "2px solid rgba(255,255,255,0.3)", textDecoration: "none", display: "flex", alignItems: "center", gap: 8 }}>
-              📞 720-399-7071
+            <a href="tel:9999999999" style={{ background: "rgba(255,255,255,0.12)", color: "white", padding: "15px 28px", borderRadius: 8, fontWeight: 700, fontSize: 15, border: "2px solid rgba(255,255,255,0.3)", textDecoration: "none", display: "flex", alignItems: "center", gap: 8 }}>
+              📞 9999999999
             </a>
           </div>
         </div>
@@ -67,7 +70,7 @@ export const TestimonialStrip = () => {
               <p style={{ color: "#3d4e63", fontSize: 15, lineHeight: 1.75, marginBottom: 20, fontStyle: "italic" }}>"{t.text}"</p>
               <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
                 <div style={{ width: 44, height: 44, borderRadius: "50%", background: "linear-gradient(135deg, #1a5276, #27ae60)", display: "flex", alignItems: "center", justifyContent: "center", color: "white", fontWeight: 800, fontSize: 16 }}>
-                  {t.name.charAt(3)}
+                  {t.name.charAt(4)}
                 </div>
                 <div>
                   <div style={{ fontWeight: 700, fontSize: 14, color: "#1a3a5c" }}>{t.name}</div>

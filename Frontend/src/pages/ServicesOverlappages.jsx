@@ -61,90 +61,92 @@ const ServicesOverlapSection = () => {
   ];
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-slate-50">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 bg-teal-50 text-teal-600 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold tracking-wide uppercase mb-4 sm:mb-6">
-            <span className="w-1.5 h-1.5 bg-teal-500 rounded-full animate-pulse"></span>
-            What We Do
+    <div style={{ fontFamily: "'Lato','Helvetica Neue',sans-serif", background: "white", paddingTop: 68 }}>
+      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-slate-50">
+        <div className="max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-12 sm:mb-16">
+            <div className="inline-flex items-center gap-2 bg-teal-50 text-teal-600 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold tracking-wide uppercase mb-4 sm:mb-6">
+              <span className="w-1.5 h-1.5 bg-teal-500 rounded-full animate-pulse"></span>
+              What We Do
+            </div>
+            <h2 className="font-serif font-bold text-3xl sm:text-4xl lg:text-5xl text-slate-900 mb-4 sm:mb-6 px-4">
+              Everything Your Dental Practice<br className="hidden sm:block" /> Needs to Grow Online
+            </h2>
+            <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto px-4">
+              From stunning websites to full-funnel marketing — we cover it all.
+            </p>
           </div>
-          <h2 className="font-serif font-bold text-3xl sm:text-4xl lg:text-5xl text-slate-900 mb-4 sm:mb-6 px-4">
-            Everything Your Dental Practice<br className="hidden sm:block" /> Needs to Grow Online
-          </h2>
-          <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto px-4">
-            From stunning websites to full-funnel marketing — we cover it all.
-          </p>
-        </div>
 
-        {/* Overlapping Cards Stack */}
-        <div className="relative space-y-4 sm:space-y-6">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className={`sticky ${
-                index === 0 ? 'top-20 sm:top-24' : 
-                index === 1 ? 'top-24 sm:top-28' : 
-                index === 2 ? 'top-28 sm:top-32' : 
-                'top-32 sm:top-36'
-              } ${
-                service.dark 
-                  ? 'bg-slate-900 text-white' 
-                  : 'bg-white text-slate-900'
-              } rounded-2xl sm:rounded-3xl shadow-xl border ${
-                service.dark ? 'border-slate-800' : 'border-slate-100'
-              } p-6 sm:p-8 lg:p-12 transition-transform hover:scale-[1.01] min-h-[400px] sm:min-h-[420px]`}
-              style={{ zIndex: index + 1 }}
-            >
-              <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
-                {/* Content */}
-                <div>
-                  <div className={`font-serif text-6xl sm:text-7xl lg:text-8xl font-black mb-3 sm:mb-4 ${
-                    service.dark ? 'text-teal-500/20' : 'text-teal-500/15'
-                  }`}>
-                    {service.number}
+          {/* Overlapping Cards Stack */}
+          <div className="relative space-y-4 sm:space-y-6">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className={`sticky ${
+                  index === 0 ? 'top-20 sm:top-24' : 
+                  index === 1 ? 'top-24 sm:top-28' : 
+                  index === 2 ? 'top-28 sm:top-32' : 
+                  'top-32 sm:top-36'
+                } ${
+                  service.dark 
+                    ? 'bg-slate-900 text-white' 
+                    : 'bg-white text-slate-900'
+                } rounded-2xl sm:rounded-3xl shadow-xl border ${
+                  service.dark ? 'border-slate-800' : 'border-slate-100'
+                } p-6 sm:p-8 lg:p-12 transition-transform hover:scale-[1.01] min-h-[400px] sm:min-h-[420px]`}
+                style={{ zIndex: index + 1 }}
+              >
+                <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
+                  {/* Content */}
+                  <div>
+                    <div className={`font-serif text-6xl sm:text-7xl lg:text-8xl font-black mb-3 sm:mb-4 ${
+                      service.dark ? 'text-teal-500/20' : 'text-teal-500/15'
+                    }`}>
+                      {service.number}
+                    </div>
+                    <div className="text-xs sm:text-sm font-bold tracking-wider uppercase text-teal-500 mb-2 sm:mb-3">
+                      {service.tag}
+                    </div>
+                    <h3 className="font-serif font-bold text-xl sm:text-2xl lg:text-3xl mb-3 sm:mb-4">
+                      {service.title}
+                    </h3>
+                    <p className={`text-sm sm:text-base leading-relaxed mb-4 sm:mb-6 ${
+                      service.dark ? 'text-slate-300' : 'text-slate-600'
+                    }`}>
+                      {service.description}
+                    </p>
+                    <ul className="space-y-2 sm:space-y-3">
+                      {service.features.map((feature, idx) => (
+                        <li key={idx} className="flex items-center gap-2 sm:gap-3 text-sm sm:text-base font-medium">
+                          <div className="w-5 h-5 sm:w-6 sm:h-6 bg-teal-500 rounded-full flex items-center justify-center flex-shrink-0">
+                            <svg className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                            </svg>
+                          </div>
+                          <span className={service.dark ? 'text-slate-200' : 'text-slate-800'}>
+                            {feature}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <div className="text-xs sm:text-sm font-bold tracking-wider uppercase text-teal-500 mb-2 sm:mb-3">
-                    {service.tag}
-                  </div>
-                  <h3 className="font-serif font-bold text-xl sm:text-2xl lg:text-3xl mb-3 sm:mb-4">
-                    {service.title}
-                  </h3>
-                  <p className={`text-sm sm:text-base leading-relaxed mb-4 sm:mb-6 ${
-                    service.dark ? 'text-slate-300' : 'text-slate-600'
-                  }`}>
-                    {service.description}
-                  </p>
-                  <ul className="space-y-2 sm:space-y-3">
-                    {service.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center gap-2 sm:gap-3 text-sm sm:text-base font-medium">
-                        <div className="w-5 h-5 sm:w-6 sm:h-6 bg-teal-500 rounded-full flex items-center justify-center flex-shrink-0">
-                          <svg className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                          </svg>
-                        </div>
-                        <span className={service.dark ? 'text-slate-200' : 'text-slate-800'}>
-                          {feature}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
 
-                {/* Image */}
-                <div className="rounded-xl sm:rounded-2xl overflow-hidden aspect-[4/3] bg-slate-200">
-                  <img 
-                    src={service.image} 
-                    alt={service.title}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                  />
+                  {/* Image */}
+                  <div className="rounded-xl sm:rounded-2xl overflow-hidden aspect-[4/3] bg-slate-200">
+                    <img 
+                      src={service.image} 
+                      alt={service.title}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };
 

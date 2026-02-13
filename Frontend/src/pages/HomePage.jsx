@@ -1,11 +1,14 @@
-import React from 'react'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useInView, useCounter } from "../hooks/useInView";
 import { ArrowRight } from "../components/Icons";
 import { CTASection, TestimonialStrip } from "../components/SharedSections";
 
 // ─── SERVICES SECTION ─────────────────────────────────────────────────────────
-const ServicesSection = ({ services, setPage }) => {
+const ServicesSection = ({ services }) => {
   const [ref, inView] = useInView(0.1);
+  const navigate = useNavigate();
+  
   return (
     <section ref={ref} style={{ padding: "90px 24px", background: "#f8fbff" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
@@ -32,7 +35,7 @@ const ServicesSection = ({ services, setPage }) => {
           ))}
         </div>
         <div style={{ textAlign: "center", marginTop: 44 }}>
-          <button onClick={() => setPage("Services")} style={{ background: "#1a5276", color: "white", padding: "14px 36px", borderRadius: 8, fontWeight: 700, fontSize: 15, border: "none", cursor: "pointer", boxShadow: "0 4px 16px rgba(26,82,118,0.3)" }}>
+          <button onClick={() => navigate("/services")} style={{ background: "#1a5276", color: "white", padding: "14px 36px", borderRadius: 8, fontWeight: 700, fontSize: 15, border: "none", cursor: "pointer", boxShadow: "0 4px 16px rgba(26,82,118,0.3)" }}>
             View All Services
           </button>
         </div>
@@ -46,7 +49,8 @@ const ServicesSection = ({ services, setPage }) => {
 };
 
 // ─── HOME PAGE ────────────────────────────────────────────────────────────────
-const HomePage = ({ setPage }) => {
+const HomePage = () => {
+  const navigate = useNavigate();
   const [heroRef, heroInView] = useInView(0.1);
   const [statsRef, statsInView] = useInView(0.3);
   const c900 = useCounter(900, 2200, statsInView);
@@ -97,10 +101,10 @@ const HomePage = ({ setPage }) => {
                 We build dental websites that attract more new patients and back it up with the smartest, most responsive team in the business. No long-term contracts. No surprises.
               </p>
               <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
-                <button onClick={() => setPage("Contact")} style={{ background: "#e67e22", color: "white", padding: "14px 32px", borderRadius: 8, fontWeight: 700, fontSize: 15, border: "none", cursor: "pointer", boxShadow: "0 6px 20px rgba(230,126,34,0.35)", letterSpacing: 0.5 }}>
+                <button onClick={() => navigate("/contact")} style={{ background: "#e67e22", color: "white", padding: "14px 32px", borderRadius: 8, fontWeight: 700, fontSize: 15, border: "none", cursor: "pointer", boxShadow: "0 6px 20px rgba(230,126,34,0.35)", letterSpacing: 0.5 }}>
                   Get Free Consultation →
                 </button>
-                <button onClick={() => setPage("Our Work")} style={{ background: "white", color: "#1a5276", padding: "14px 28px", borderRadius: 8, fontWeight: 700, fontSize: 15, border: "2px solid #1a5276", cursor: "pointer" }}>
+                <button onClick={() => navigate("/our-work")} style={{ background: "white", color: "#1a5276", padding: "14px 28px", borderRadius: 8, fontWeight: 700, fontSize: 15, border: "2px solid #1a5276", cursor: "pointer" }}>
                   See Our Work
                 </button>
               </div>
@@ -157,9 +161,9 @@ const HomePage = ({ setPage }) => {
         </div>
       </section>
 
-      <ServicesSection services={services} setPage={setPage} />
+      <ServicesSection services={services} />
       <TestimonialStrip />
-      <CTASection setPage={setPage} />
+      <CTASection />
 
       <style>{`
         @media (max-width: 768px) {
