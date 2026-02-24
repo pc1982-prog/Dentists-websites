@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useInView, useCounter } from "../hooks/useInView";
 import { CTASection } from "../components/SharedSections";
 import ServicesOverlapSection from "../pages/ServicesOverlappages";
+import DoctorImage from "../../public/DoctorImage.jpg"
 
 // ─── TESTIMONIAL SECTION — 3 cards, arrows on left/right, auto-play ──────────
 const TestimonialSlider = () => {
@@ -255,10 +256,10 @@ const HomePage = () => {
         <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 70, alignItems: "center", opacity: drInView ? 1 : 0, transform: drInView ? "translateY(0)" : "translateY(30px)", transition: "all 0.7s ease" }} className="dr-grid">
           <div>
             <img
-              src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=560&q=80"
+              src={DoctorImage}
               alt="Dr. Sanjay Bajaj"
               style={{ width: "100%", borderRadius: 16, boxShadow: "0 20px 60px rgba(0,0,0,0.12)" }}
-              onError={e => { e.target.src = "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=560&q=80"; }}
+              onError={e => { e.target.src = {DoctorImage}; }}
             />
           </div>
           <div>
