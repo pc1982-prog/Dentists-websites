@@ -85,7 +85,7 @@ const AboutPage = () => {
         <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 70, alignItems: "center" }} className="story-grid">
           <div>
             <img
-              src={DoctorImage}
+              src="/dr-sanjay-bajaj-rohini-sector-18-delhi-dentists-xu5c1v-250.jpg"
               alt="Dr. Sanjay Bajaj"
               style={{ width: "100%", borderRadius: 16, boxShadow: "0 20px 60px rgba(0,0,0,0.12)" }}
               onError={e => { e.target.src = {DoctorImage}; }}

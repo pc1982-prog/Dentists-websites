@@ -15,14 +15,14 @@ const ServicesPage = () => {
   ];
 
   const quickServices = [
-    { num: "01", label: "Dental Implants", desc: "Permanent, natural-looking tooth replacement", color: "#1a5276", light: "#eaf4fb" },
-    { num: "02", label: "Painless RCT / Single Visit RCT", desc: "Pain-free nerve treatment to save your tooth", color: "#27ae60", light: "#e8f5e9" },
-    { num: "03", label: "Dental Cleaning & Scaling", desc: "Deep clean to remove tartar and brighten enamel", color: "#148f77", light: "#e8f8f5" },
-    { num: "04", label: "Kids Dentistry", desc: "Gentle, friendly dental care for children", color: "#d68910", light: "#fef9e7" },
-    { num: "05", label: "Full Mouth Rehabilitation", desc: "Fix dental implants & dentures for complete smile", color: "#7d3c98", light: "#f5eef8" },
-    { num: "06", label: "Orthodontic Treatment", desc: "Braces & Invisalign for perfectly aligned teeth", color: "#1a5276", light: "#eaf4fb" },
-    { num: "07", label: "Braces & Invisalign", desc: "Modern orthodontic solutions for all ages", color: "#c0392b", light: "#fdecea" },
-    { num: "08", label: "Cosmetic Dentistry", desc: "Smile makeovers, veneers, whitening & more", color: "#148f77", light: "#e8f8f5" },
+    { num: "01", label: "Dental Implants",id: "dental-implants", desc: "Permanent, natural-looking tooth replacement", color: "#1a5276", light: "#eaf4fb" },
+    { num: "02", label: "Painless RCT / Single Visit RCT", id: "rct", desc: "Pain-free nerve treatment to save your tooth", color: "#27ae60", light: "#e8f5e9" },
+    { num: "03", label: "Dental Cleaning & Scaling", id: "cleaning", desc: "Deep clean to remove tartar and brighten enamel", color: "#148f77", light: "#e8f8f5" },
+    { num: "04", label: "Kids Dentistry",id: "kids-dentistry", desc: "Gentle, friendly dental care for children", color: "#d68910", light: "#fef9e7" },
+    { num: "05", label: "Full Mouth Rehabilitation",id: "full-mouth", desc: "Fix dental implants & dentures for complete smile", color: "#7d3c98", light: "#f5eef8" },
+    { num: "06", label: "Orthodontic Treatment", id: "orthodontics",desc: "Braces & Invisalign for perfectly aligned teeth", color: "#1a5276", light: "#eaf4fb" },
+    { num: "07", label: "Braces & Invisalign",id: "braces", desc: "Modern orthodontic solutions for all ages", color: "#c0392b", light: "#fdecea" },
+    { num: "08", label: "Cosmetic Dentistry",id: "cosmetic", desc: "Smile makeovers, veneers, whitening & more", color: "#148f77", light: "#e8f8f5" },
   ];
 
   return (
@@ -70,9 +70,9 @@ const ServicesPage = () => {
             <h2 style={{ fontSize: "clamp(22px,2.8vw,34px)", fontWeight: 900, color: "#1a3a5c", fontFamily: "'Georgia', serif", marginBottom: 10 }}>All Treatments We Offer</h2>
             <p style={{ color: "#5d6d7e", fontSize: 15 }}>Comprehensive care for every dental need — all under one roof</p>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 20 }} className="treatments-grid">
+          <div  style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 20 }} className="treatments-grid">
             {quickServices.map((s, i) => (
-              <div key={i} style={{ background: "white", border: "1.5px solid #eaf0f6", borderRadius: 16, padding: "26px 22px", position: "relative", overflow: "hidden", boxShadow: "0 2px 16px rgba(0,0,0,0.05)", opacity: treatInView ? 1 : 0, transform: treatInView ? "translateY(0)" : "translateY(22px)", transition: `all 0.5s ease ${i * 0.07}s` }}>
+              <div key={i} id={s.id} style={{ background: "white", border: "1.5px solid #eaf0f6", borderRadius: 16, padding: "26px 22px", position: "relative", overflow: "hidden", boxShadow: "0 2px 16px rgba(0,0,0,0.05)", opacity: treatInView ? 1 : 0, transform: treatInView ? "translateY(0)" : "translateY(22px)", transition: `all 0.5s ease ${i * 0.07}s` }}>
                 <div style={{ position: "absolute", top: -8, right: 10, fontSize: 72, fontWeight: 900, color: s.light, fontFamily: "'Georgia', serif", lineHeight: 1, userSelect: "none", pointerEvents: "none" }}>{s.num}</div>
                 <div style={{ width: 36, height: 4, borderRadius: 2, background: s.color, marginBottom: 18 }} />
                 <div style={{ fontWeight: 900, fontSize: 15, color: "#1a3a5c", marginBottom: 8, lineHeight: 1.3, position: "relative" }}>{s.label}</div>

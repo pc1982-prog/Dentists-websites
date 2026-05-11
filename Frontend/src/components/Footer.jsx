@@ -44,11 +44,34 @@ const Footer = () => (
 
         {/* Treatments */}
         <div>
-          <h4 style={{ color: "white", fontWeight: 800, fontSize: 13.5, textTransform: "uppercase", letterSpacing: 1.2, marginBottom: 18 }}>Treatments</h4>
-          {["General Dentistry", "Root Canal (RCT)", "Dental Implants", "Teeth Whitening", "Orthodontics", "Pediatric Care"].map(item => (
-            <div key={item} style={{ fontSize: 13.5, marginBottom: 10, color: "rgba(255,255,255,0.65)" }}>{item}</div>
-          ))}
-        </div>
+  <h4 style={{ color: "white", fontWeight: 800, fontSize: 13.5, textTransform: "uppercase", letterSpacing: 1.2, marginBottom: 18 }}>Treatments</h4>
+  {[
+    { label: "Dental Implants", id: "dental-implants" },
+    { label: "Painless RCT", id: "rct" },
+    { label: "Dental Cleaning & Scaling", id: "cleaning" },
+    { label: "Kids Dentistry", id: "kids-dentistry" },
+    { label: "Full Mouth Rehabilitation", id: "full-mouth" },
+    { label: "Orthodontic Treatment", id: "orthodontics" },
+    { label: "Braces & Invisalign", id: "braces" },
+    { label: "Cosmetic Dentistry", id: "cosmetic" },
+  ].map(item => (
+    <Link
+      key={item.id}
+      to={`/services#${item.id}`}
+      onClick={() => {
+        setTimeout(() => {
+          const el = document.getElementById(item.id);
+          if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+        }, 100);
+      }}
+      style={{ display: "block", fontSize: 13.5, marginBottom: 10, color: "rgba(255,255,255,0.65)", textDecoration: "none", transition: "color 0.2s" }}
+      onMouseEnter={e => e.target.style.color = "#27ae60"}
+      onMouseLeave={e => e.target.style.color = "rgba(255,255,255,0.65)"}
+    >
+      {item.label}
+    </Link>
+  ))}
+</div>
 
         {/* Visit */}
         <div>
