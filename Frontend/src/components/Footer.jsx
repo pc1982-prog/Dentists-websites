@@ -7,12 +7,12 @@ const Footer = () => (
       <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr", gap: 40, marginBottom: 48 }} className="footer-grid">
         {/* Brand */}
         <div>
-          <Link to="/" style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 18, textDecoration: "none" }}>
-            <div style={{ width: 38, height: 38, background: "linear-gradient(135deg, #27ae60, #2980b9)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18 }}>🦷</div>
-            <div>
-              <div style={{ fontWeight: 900, fontSize: 15, color: "white", letterSpacing: 1, textTransform: "uppercase" }}>Planet H Dental</div>
-              <div style={{ fontSize: 10, color: "#27ae60", fontWeight: 600, letterSpacing: 1.5, textTransform: "uppercase" }}>Dr. Sanjay Bajaj</div>
-            </div>
+          <Link to="/" style={{ height: 120, width: "auto", filter: "brightness(0) invert(1)" }}>
+            <img
+              src="/planet_h__page-0001__1_-removebg-preview.png"
+              alt="Planet H Dental Logo"
+              style={{ height: 120, width: "auto" }}
+            />
           </Link>
           <p style={{ fontSize: 14, lineHeight: 1.8, maxWidth: 290, color: "rgba(255,255,255,0.65)" }}>
             Comprehensive dental care for the whole family. Trusted by patients across Rohini, New Delhi since years.
@@ -56,17 +56,26 @@ const Footer = () => (
           <p style={{ fontSize: 13.5, color: "rgba(255,255,255,0.65)", lineHeight: 1.7, marginBottom: 14 }}>
             B4 Rd, Pocket 3,<br />Sector 18B, Rohini,<br />New Delhi – 110089
           </p>
-        
-          
-          <div style={{ marginTop: 16 }}>
+
+
+          {/* <div style={{ marginTop: 16 }}>
             <div style={{ fontSize: 13, color: "rgba(255,255,255,0.55)", marginBottom: 4 }}>⭐ 4.6 / 5.0</div>
             <div style={{ fontSize: 13, color: "rgba(255,255,255,0.55)" }}>18+ Google Reviews</div>
-          </div>
+          </div> */}
         </div>
       </div>
 
       <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: 24, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
-        <div style={{ fontSize: 13, color: "rgba(255,255,255,0.45)" }}>© 2025 Planet H Dental. All rights reserved.</div>
+        <div style={{ fontSize: 13, color: "rgba(255,255,255,0.45)" }}>
+          © 2026{" "}
+          <a href="https://www.strategixworks.com/" target="_blank" rel="noopener noreferrer"
+            style={{ color: "rgba(255,255,255,0.65)", textDecoration: "none", fontWeight: 600 }}
+            onMouseEnter={e => e.target.style.color = "#27ae60"}
+            onMouseLeave={e => e.target.style.color = "rgba(255,255,255,0.65)"}>
+            Strategix
+          </a>
+          . All rights reserved.
+        </div>
         <div style={{ fontSize: 13, color: "rgba(255,255,255,0.45)" }}>Built with ❤️ for healthy smiles everywhere</div>
       </div>
     </div>

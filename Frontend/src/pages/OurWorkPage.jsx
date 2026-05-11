@@ -5,50 +5,19 @@ import { CTASection } from "../components/SharedSections";
 const CaseCard = ({ item, index }) => {
   const [ref, inView] = useInView(0.1);
   return (
-    <div ref={ref} style={{
-      background: "white",
-      borderRadius: 18,
-      overflow: "hidden",
-      boxShadow: "0 4px 24px rgba(0,0,0,0.08)",
-      border: "1px solid #eaf0f6",
-      opacity: inView ? 1 : 0,
-      transform: inView ? "translateY(0)" : "translateY(32px)",
-      transition: `all 0.6s ease ${index * 0.1}s`,
-    }}>
-      {/* Image */}
+    <div ref={ref} style={{ background: "white", borderRadius: 18, overflow: "hidden", boxShadow: "0 4px 24px rgba(0,0,0,0.08)", border: "1px solid #eaf0f6", opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(32px)", transition: `all 0.6s ease ${index * 0.1}s` }}>
       <div style={{ position: "relative", overflow: "hidden", height: 220 }}>
-        <img
-          src={item.image}
-          alt={item.name}
-          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-          onError={e => { e.target.style.background = item.bg; }}
-        />
+        <img src={item.image} alt={item.title} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(26,42,58,0.75) 0%, transparent 55%)" }} />
         <div style={{ position: "absolute", bottom: 16, left: 18 }}>
-          <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase", color: "rgba(255,255,255,0.75)", marginBottom: 3 }}>{item.type}</div>
-          <div style={{ fontWeight: 900, fontSize: 18, color: "white", fontFamily: "'Georgia', serif" }}>{item.name}</div>
+          <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase", color: "rgba(255,255,255,0.75)", marginBottom: 3 }}>{item.tag}</div>
+          <div style={{ fontWeight: 900, fontSize: 18, color: "white", fontFamily: "'Georgia', serif" }}>{item.title}</div>
         </div>
       </div>
-
-      {/* Body */}
       <div style={{ padding: "22px 24px" }}>
         <p style={{ color: "#5d6d7e", fontSize: 14.5, lineHeight: 1.75, marginBottom: 20 }}>{item.desc}</p>
-
-        {/* Before / After */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 16 }}>
-          <div style={{ background: "#fef7f0", border: "1px solid #fde0c4", borderRadius: 10, padding: "12px 14px" }}>
-            <div style={{ fontSize: 11, fontWeight: 700, color: "#c0713a", textTransform: "uppercase", letterSpacing: 1, marginBottom: 4 }}>Before</div>
-            <div style={{ fontSize: 13.5, color: "#5d4037", fontWeight: 600 }}>{item.before}</div>
-          </div>
-          <div style={{ background: "#f0fdf4", border: "1px solid #bbf7d0", borderRadius: 10, padding: "12px 14px" }}>
-            <div style={{ fontSize: 11, fontWeight: 700, color: "#166534", textTransform: "uppercase", letterSpacing: 1, marginBottom: 4 }}>After</div>
-            <div style={{ fontSize: 13.5, color: "#14532d", fontWeight: 600 }}>{item.after}</div>
-          </div>
-        </div>
-
-        {/* Treatment tags */}
         <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
-          {item.treatments.map((t, i) => (
+          {item.tags.map((t, i) => (
             <span key={i} style={{ fontSize: 12, fontWeight: 600, background: "#f0f4f8", color: "#3d4e63", padding: "4px 11px", borderRadius: 20, border: "1px solid #e2e8f0" }}>{t}</span>
           ))}
         </div>
@@ -63,90 +32,70 @@ const OurWorkPage = () => {
 
   const cases = [
     {
-      name: "Rajan Khanna",
-      type: "Smile Makeover",
-      image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=560&q=80",
-      bg: "#e8f5e9",
-      desc: "Rajan came in with severe discolouration and uneven spacing. After a thorough assessment, Dr. Bajaj recommended veneers and whitening for a complete transformation.",
-      before: "Stained, uneven teeth with visible gaps",
-      after: "Bright, aligned smile — boost in confidence",
-      treatments: ["Porcelain Veneers", "Whitening", "Reshaping"],
+      title: "Treatment Room",
+      tag: "Our Facility",
+      image: "/WhatsApp Image 2026-05-11 at 11.14.05 AM.jpeg",
+      desc: "Our well-equipped treatment rooms ensure every patient receives care in a clean, modern, and comfortable environment.",
+      tags: ["State-of-the-art Equipment", "Hygienic Setup", "Modern Technology"],
     },
     {
-      name: "Meena Sharma",
-      type: "Root Canal & Crown",
-      image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=560&q=80",
-      bg: "#e3f2fd",
-      desc: "Meena had been avoiding treatment for months due to fear of pain. With our gentle RCT approach and modern anaesthesia, she experienced zero discomfort throughout.",
-      before: "Severe tooth pain, afraid of dental visits",
-      after: "Pain-free, saved her natural tooth with crown",
-      treatments: ["Root Canal (RCT)", "Dental Crown", "Post Treatment"],
+      title: "Dental Chair Setup",
+      tag: "Advanced Equipment",
+      image: "/WhatsApp Image 2026-05-11 at 11.14.06 AM (1).jpeg",
+      desc: "Each dental unit is equipped with the latest instruments for painless and precise treatment — from RCT to implants.",
+      tags: ["Painless RCT", "Dental Implants", "Full Mouth Rehab"],
     },
     {
-      name: "Deepak Malhotra",
-      type: "Full Mouth Implants",
-      image: "https://images.unsplash.com/photo-1629909615184-74f495363b67?w=560&q=80",
-      bg: "#fff3e0",
-      desc: "Deepak had been living with multiple missing teeth for over 5 years, affecting his confidence and ability to eat comfortably. We restored his full bite with implants.",
-      before: "Multiple missing teeth, difficulty eating",
-      after: "Complete set of permanent implants, full function",
-      treatments: ["Dental Implants", "Bone Grafting", "Full Rehabilitation"],
+      title: "Our Expert Team",
+      tag: "Specialist Care",
+      image: "/2026-04-21.webp",
+      desc: "Dr. Sanjay Bajaj leads a team of specialists including an Orthodontist, Oral Surgeon, and Endodontist for comprehensive care.",
+      tags: ["Dr. Rohit Verma", "Dr. Vineet Gupta", "Dr. Kruti Jadwal"],
     },
     {
-      name: "Ananya Singh",
-      type: "Orthodontic Treatment",
-      image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=560&q=80",
-      bg: "#fce4ec",
-      desc: "Ananya wanted straighter teeth before her wedding. Dr. Bajaj created a customised orthodontic plan that delivered beautiful alignment within the timeline she needed.",
-      before: "Crowded front teeth, misaligned bite",
-      after: "Perfectly aligned smile, ready for her big day",
-      treatments: ["Braces", "Retainers", "Cosmetic Finishing"],
+      title: "Team at Work",
+      tag: "Patient Care",
+      image: "/png.webp",
+      desc: "Our caring team ensures every patient feels comfortable and relaxed throughout their treatment at Planet H Dental.",
+      tags: ["Compassionate Care", "Gentle Approach", "Pain-Free Treatment"],
     },
     {
-      name: "Vijay Bhatia",
-      type: "Preventive & Restoration",
-      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=560&q=80",
-      bg: "#ede7f6",
-      desc: "Vijay hadn't visited a dentist in nearly a decade. We built a full care plan — from deep cleaning to fillings — restoring his oral health and preventing further damage.",
-      before: "Tartar buildup, multiple cavities, gum issues",
-      after: "Fully restored oral health, regular care plan set",
-      treatments: ["Scaling & Polishing", "Multiple Fillings", "Gum Treatment"],
+      title: "Doctor's Cabin",
+      tag: "Consultation Room",
+      image: "/WhatsApp Image 2026-05-11 at 11.14.05 AM (1).jpeg",
+      desc: "Every treatment begins with a thorough consultation in our comfortable and welcoming doctor's cabin at Rohini Sector 18B.",
+      tags: ["Detailed Consultation", "Treatment Planning", "Patient Education"],
     },
     {
-      name: "Priti Agarwal",
-      type: "Pediatric Care",
-      image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=560&q=80",
-      bg: "#e0f7fa",
-      desc: "Priti's 7-year-old was terrified of dentists. Our child-friendly approach made him look forward to visits. Early intervention prevented issues that would've needed major treatment later.",
-      before: "Dental anxiety, early signs of decay",
-      after: "Regular happy visits, healthy growing teeth",
-      treatments: ["Pediatric Checkup", "Fluoride Treatment", "Sealants"],
+      title: "Clinic Equipment",
+      tag: "Technology",
+      image: "/unnamed.webp",
+      desc: "Planet H Dental uses modern dental equipment and the latest technology to ensure precise, effective, and comfortable procedures.",
+      tags: ["Modern Instruments", "Digital X-Rays", "Advanced Sterilization"],
     },
   ];
 
   const stats = [
     { value: "500+", label: "Patients Treated" },
-    { value: "4.6★", label: "Google Rating" },
-    { value: "18+", label: "5-Star Reviews" },
-    { value: "100%", label: "Follow-up Care" },
+    { value: "4.7★", label: "Google Rating" },
+    { value: "31+", label: "5-Star Reviews" },
+    { value: "4", label: "Specialists" },
   ];
 
   return (
     <div style={{ fontFamily: "'Lato','Helvetica Neue',sans-serif", background: "white", paddingTop: 68 }}>
-      {/* Header */}
       <section ref={headerRef} style={{ padding: "80px 24px 60px", background: "linear-gradient(135deg, #f8fbff, #f0fdf4)", textAlign: "center" }}>
         <div style={{ maxWidth: 660, margin: "0 auto", opacity: headerInView ? 1 : 0, transform: headerInView ? "translateY(0)" : "translateY(30px)", transition: "all 0.7s ease" }}>
-          <div style={{ display: "inline-block", background: "#e8f5e9", color: "#1e7e34", fontWeight: 700, fontSize: 12, letterSpacing: 2, textTransform: "uppercase", padding: "6px 16px", borderRadius: 20, marginBottom: 16 }}>Patient Stories</div>
+          <div style={{ display: "inline-block", background: "#e8f5e9", color: "#1e7e34", fontWeight: 700, fontSize: 12, letterSpacing: 2, textTransform: "uppercase", padding: "6px 16px", borderRadius: 20, marginBottom: 16 }}>Our Clinic</div>
           <h1 style={{ fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 900, color: "#1a3a5c", fontFamily: "'Georgia', serif", marginBottom: 16 }}>
-            Real Patients, Real Transformations
+            Planet H Dental — A Closer Look
           </h1>
           <p style={{ color: "#5d6d7e", fontSize: 17, lineHeight: 1.8 }}>
-            Every smile has a story. Here are some of the patients Dr. Sanjay Bajaj and the Planet H Dental team have helped transform — from first visit to final result.
+            Take a look inside Planet H Dental, Rohini Sector 18B — where modern facilities, expert specialists, and compassionate care come together.
           </p>
         </div>
       </section>
 
-      {/* Stats bar */}
       <section ref={statsRef} style={{ background: "#1a3a5c", padding: "28px 24px" }}>
         <div style={{ maxWidth: 900, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 10, textAlign: "center" }} className="work-stats">
           {stats.map((s, i) => (
@@ -158,7 +107,6 @@ const OurWorkPage = () => {
         </div>
       </section>
 
-      {/* Cases Grid */}
       <section style={{ padding: "60px 24px 80px", background: "white" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 28 }} className="cases-grid">

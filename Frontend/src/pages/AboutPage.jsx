@@ -12,16 +12,40 @@ const AboutPage = () => {
   const [valuesRef, valuesInView] = useInView(0.15);
   const [statsRef, statsInView] = useInView(0.3);
 
-  const cRating = useCounter(46, 1800, statsInView);
-  const cReviews = useCounter(18, 1600, statsInView);
-  const cServices = useCounter(10, 1400, statsInView);
+  const cRating = useCounter(47, 1800, statsInView);
+  const cReviews = useCounter(31, 1600, statsInView);
+  const cServices = useCounter(12, 1400, statsInView);
   const cSatisfaction = useCounter(100, 2000, statsInView);
 
   const team = [
-    { name: "Dr. Sanjay Bajaj", role: "Chief Dental Surgeon & Founder", emoji: "👨‍⚕️", bio: "Expert in RCT, dental implants, and full-mouth rehabilitation. Known for his calm, gentle approach and exceptional outcomes.", badge: "Founder" },
-    { name: "Dr. Priya Sharma", role: "Cosmetic Dental Specialist", emoji: "👩‍⚕️", bio: "Specializes in smile makeovers, veneers, and teeth whitening. Helps patients achieve the confident smile they've always wanted.", badge: "Cosmetics" },
-    { name: "Dr. Ankit Verma", role: "Oral & Maxillofacial Surgeon", emoji: "🦷", bio: "Expert in complex extractions, bone grafting, and advanced implant procedures. Passionate about pain-free dentistry.", badge: "Surgery" },
-    { name: "Sunita Gupta", role: "Patient Coordinator", emoji: "🩺", bio: "Your friendly first point of contact. Sunita ensures every patient feels welcome, informed, and comfortable from day one.", badge: "Care Team" },
+    { 
+      name: "Dr. Sanjay Bajaj", 
+      role: "Dental Surgeon & Founder", 
+      emoji: "👨‍⚕️", 
+      bio: "Expert in RCT, dental implants, and full-mouth rehabilitation. Known for his calm, gentle approach and exceptional outcomes.", 
+      badge: "Founder" 
+    },
+    { 
+      name: "Dr. Rohit Verma", 
+      role: "Orthodontist", 
+      emoji: "🦷", 
+      bio: "Specializes in braces, Invisalign, and orthodontic corrections. Helps patients achieve perfectly aligned, beautiful smiles.", 
+      badge: "Orthodontics" 
+    },
+    { 
+      name: "Dr. Vineet Gupta", 
+      role: "Oral Surgeon & Implantologist", 
+      emoji: "🩺", 
+      bio: "Expert in complex extractions, bone grafting, and advanced dental implant procedures. Passionate about pain-free dentistry.", 
+      badge: "Implants" 
+    },
+    { 
+      name: "Dr. Kruti Jadwal", 
+      role: "Endodontist", 
+      emoji: "👩‍⚕️", 
+      bio: "Specializes in root canal treatments and endodontic procedures. Dedicated to making every RCT a painless and comfortable experience.", 
+      badge: "RCT" 
+    },
   ];
 
   const values = [
@@ -30,7 +54,7 @@ const AboutPage = () => {
     { icon: "🔬", title: "Advanced Technology", desc: "Digital X-rays, modern implant systems, and up-to-date sterilization protocols ensure safe, precise, effective treatment." },
     { icon: "💬", title: "Clear Communication", desc: "We explain every step in plain language, so you always know exactly what's happening and what to expect." },
     { icon: "🦷", title: "Complete Under One Roof", desc: "From routine cleanings to full-mouth restoration — we handle everything so you don't need to visit multiple specialists." },
-    { icon: "⭐", title: "Proven Results", desc: "Rated 4.6 stars on Google with 18+ reviews. Our patients consistently praise our results and caring approach." },
+    { icon: "⭐", title: "Proven Results", desc: "Rated 4.7 stars on Google with 31+ reviews. Our patients consistently praise our results and caring approach." },
   ];
 
   return (

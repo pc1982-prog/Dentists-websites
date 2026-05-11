@@ -42,16 +42,12 @@ const Navbar = () => {
     }}>
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between", height: 68 }}>
         {/* Logo */}
-        <Link to="/" style={{ display: "flex", alignItems: "center", gap: 10, cursor: "pointer", textDecoration: "none" }}>
-          <div style={{ width: 42, height: 42, background: "linear-gradient(135deg, #1a5276, #2980b9)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", color: "white", fontSize: 20, fontWeight: "bold", boxShadow: "0 4px 12px rgba(26,82,118,0.3)" }}>
-            <span style={{ fontSize: 18 }}>🦷</span>
-          </div>
-          <div>
-            <div style={{ lineHeight: 1.1 }}>
-              <span style={{ fontWeight: 900, fontSize: 16, color: "#1a5276", letterSpacing: 1, textTransform: "uppercase" }}>Planet H Dental</span>
-            </div>
-            <div style={{ fontSize: 10, color: "#27ae60", fontWeight: 600, letterSpacing: 1.5, textTransform: "uppercase" }}>Dr. Sanjay Bajaj</div>
-          </div>
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <img
+            src="/planet_h__page-0001__1_-removebg-preview.png"
+            alt="Planet H Dental Logo"
+            style={{ height: 120, width: "auto" }}
+          />
         </Link>
 
         {/* Desktop Links */}
