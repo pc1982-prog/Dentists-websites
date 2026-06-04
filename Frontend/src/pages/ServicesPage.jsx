@@ -6,7 +6,7 @@ const ServicesPage = () => {
   const [headerRef, headerInView] = useInView(0.2);
   const [treatRef, treatInView] = useInView(0.1);
 
-  const services = [
+const services = [
     { icon: "🦷", title: "General Dentistry", desc: "Comprehensive dental care for the whole family. Routine checkups, cleanings, fillings and preventive treatments by Dr. Sanjay Bajaj.", items: ["Regular Checkups & Cleanings", "Painless Tooth Fillings", "Tooth Extractions", "Dental X-Rays", "Gum Disease Treatment", "Oral Health Consultation"], image: "/al-afdal-family.jpg", dark: false },
     { icon: "💎", title: "Cosmetic Dentistry", desc: "Transform your smile with advanced cosmetic dental treatments. Natural-looking results for a bright, confident smile.", items: ["Teeth Whitening", "Dental Veneers", "Smile Makeovers", "Tooth Bonding", "Crown & Bridge Work", "Aesthetic Reshaping"], image: "/Cosmetic-Dentistry-in-Pune-at-Devs-Oral-Care.webp", dark: true },
     { icon: "🔬", title: "Root Canal & Implants", desc: "Highly rated for painless RCT and dental implants. Single visit RCT available. Full mouth rehabilitation by specialist team.", items: ["Painless RCT / Single Visit RCT", "Dental Implants", "Full Mouth Rehabilitation", "Bone Grafting Procedures", "Fix Dental Implants / Dentures", "Wisdom Tooth Removal"], image: "/RCT.webp", dark: false },
@@ -14,7 +14,7 @@ const ServicesPage = () => {
     { icon: "👶", title: "Kids Dentistry", desc: "Gentle, friendly dental care designed especially for children. We make every visit a positive experience.", items: ["Child-Friendly Checkups", "Fluoride Treatments", "Dental Sealants", "Early Orthodontic Assessment", "Habit Counseling", "Parent Education"], image: "/kidsub4.png", dark: false },
   ];
 
-  const quickServices = [
+const quickServices = [
     { num: "01", label: "Dental Implants",id: "dental-implants", desc: "Permanent, natural-looking tooth replacement", color: "#1a5276", light: "#eaf4fb" },
     { num: "02", label: "Painless RCT / Single Visit RCT", id: "rct", desc: "Pain-free nerve treatment to save your tooth", color: "#27ae60", light: "#e8f5e9" },
     { num: "03", label: "Dental Cleaning & Scaling", id: "cleaning", desc: "Deep clean to remove tartar and brighten enamel", color: "#148f77", light: "#e8f8f5" },
@@ -23,7 +23,7 @@ const ServicesPage = () => {
     { num: "06", label: "Orthodontic Treatment", id: "orthodontics",desc: "Braces & Invisalign for perfectly aligned teeth", color: "#1a5276", light: "#eaf4fb" },
     { num: "07", label: "Braces & Invisalign",id: "braces", desc: "Modern orthodontic solutions for all ages", color: "#c0392b", light: "#fdecea" },
     { num: "08", label: "Cosmetic Dentistry",id: "cosmetic", desc: "Smile makeovers, veneers, whitening & more", color: "#148f77", light: "#e8f8f5" },
-  ];
+];
 
   return (
     <div style={{ fontFamily: "'Lato','Helvetica Neue',sans-serif", background: "white", paddingTop: 68 }}>
@@ -35,7 +35,7 @@ const ServicesPage = () => {
             Complete Dental Care Under One Roof
           </h1>
           <p style={{ color: "#5d6d7e", fontSize: 17, lineHeight: 1.8 }}>
-            From routine cleanings to complex implants — Dr. Sanjay Bajaj and a specialist team provide comprehensive dental solutions at Planet H Dental, Rohini Sector 18B.
+            From routine cleanings to complex implants — Dr. Sanjay Bajaj and a specialist team provide comprehensive dental solutions at Planet H Dental, Rohini Sector 18.
           </p>
         </div>
       </section>
