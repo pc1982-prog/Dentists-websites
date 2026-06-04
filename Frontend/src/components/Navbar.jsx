@@ -72,7 +72,7 @@ const Navbar = () => {
             </Link>
           ))}
           <a href="tel:09810077219" style={{ background: "#e67e22", color: "white", padding: "9px 18px", borderRadius: 6, fontSize: 13, fontWeight: 700, textDecoration: "none", display: "flex", alignItems: "center", gap: 6, boxShadow: "0 2px 8px rgba(230,126,34,0.35)", marginLeft: 6 }}>
-            📞 098100 77219
+            📞 98100 77219
           </a>
         </div>
 

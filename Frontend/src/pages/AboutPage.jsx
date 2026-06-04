@@ -12,9 +12,9 @@ const AboutPage = () => {
   const [valuesRef, valuesInView] = useInView(0.15);
   const [statsRef, statsInView] = useInView(0.3);
 
-  const cRating = useCounter(47, 1800, statsInView);
+  const cRating = useCounter(48, 1800, statsInView);
   const cReviews = useCounter(31, 1600, statsInView);
-  const cServices = useCounter(12, 1400, statsInView);
+  const cServices = useCounter(28, 1400, statsInView);
   const cSatisfaction = useCounter(100, 2000, statsInView);
 
   const team = [
@@ -54,7 +54,7 @@ const AboutPage = () => {
     { icon: "🔬", title: "Advanced Technology", desc: "Digital X-rays, modern implant systems, and up-to-date sterilization protocols ensure safe, precise, effective treatment." },
     { icon: "💬", title: "Clear Communication", desc: "We explain every step in plain language, so you always know exactly what's happening and what to expect." },
     { icon: "🦷", title: "Complete Under One Roof", desc: "From routine cleanings to full-mouth restoration — we handle everything so you don't need to visit multiple specialists." },
-    { icon: "⭐", title: "Proven Results", desc: "Rated 4.7 stars on Google with 31+ reviews. Our patients consistently praise our results and caring approach." },
+    { icon: "⭐", title: "Proven Results", desc: "Rated 4.8 stars on Google with 31+ reviews. Our patients consistently praise our results and caring approach." },
   ];
 
   return (
@@ -94,7 +94,7 @@ const AboutPage = () => {
           <div>
             <h2 style={{ fontSize: "clamp(24px, 3vw, 36px)", fontWeight: 900, color: "#1a3a5c", fontFamily: "'Georgia', serif", marginBottom: 20 }}>Built By a Dentist Who Cares</h2>
             <p style={{ color: "#5d6d7e", fontSize: 16, lineHeight: 1.85, marginBottom: 20 }}>
-              Planet H Dental was established by Dr. Sanjay Bajaj with a vision to provide world-class dental care to the residents of Rohini and surrounding areas. Located in Sector 18B, we have grown into one of Delhi's most trusted dental practices.
+              Planet H Dental was established by Dr. Sanjay Bajaj with a vision to provide world-class dental care to the residents of Rohini and surrounding areas. Located in Sector 18, we have grown into one of Delhi's most trusted dental practices.
             </p>
             <p style={{ color: "#5d6d7e", fontSize: 16, lineHeight: 1.85, marginBottom: 28 }}>
               We specialize in everything from simple fillings to complex implant procedures, all performed with the latest technology and a genuinely caring touch. Our patients consistently praise us for our gentle approach and outstanding results.

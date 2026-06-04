@@ -55,7 +55,7 @@ const ServicesOverlapSection = () => {
             Everything Your Family Needs, <span style={{ color: "#27ae60" }}>Under One Roof</span>
           </h2>
           <p style={{ color: "#5d6d7e", fontSize: 16, maxWidth: 560, margin: "0 auto", lineHeight: 1.75 }}>
-            Planet H Dental offers complete treatments — from routine cleanings to advanced implants — delivered with care at Rohini Sector 18B.
+            Planet H Dental offers complete treatments — from routine cleanings to advanced implants — delivered with care at Rohini Sector 18.
           </p>
         </div>
 

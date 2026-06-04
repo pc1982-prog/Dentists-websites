@@ -18,7 +18,7 @@ const Footer = () => (
             Comprehensive dental care for the whole family. Trusted by patients across Rohini, New Delhi since years.
           </p>
           <div style={{ marginTop: 18 }}>
-            <a href="tel:09810077219" style={{ color: "white", textDecoration: "none", fontWeight: 700, fontSize: 15 }}>📞 098100 77219</a>
+            <a href="tel:9810077219" style={{ color: "white", textDecoration: "none", fontWeight: 700, fontSize: 15 }}>📞 98100 77219</a>
           </div>
           <div style={{ marginTop: 8 }}>
             <a href="mailto:info@planeth dental.com" style={{ color: "rgba(255,255,255,0.65)", textDecoration: "none", fontSize: 13.5 }}>✉️ info@planethDental.com</a>
@@ -77,7 +77,7 @@ const Footer = () => (
         <div>
           <h4 style={{ color: "white", fontWeight: 800, fontSize: 13.5, textTransform: "uppercase", letterSpacing: 1.2, marginBottom: 18 }}>Visit Us</h4>
           <p style={{ fontSize: 13.5, color: "rgba(255,255,255,0.65)", lineHeight: 1.7, marginBottom: 14 }}>
-            B4 Rd, Pocket 3,<br />Sector 18B, Rohini,<br />New Delhi – 110089
+          B2/18, opp. Metro Pillar 253,<br />Pocket 3, Sector 18, Rohini,<br />New Delhi – 110085
           </p>
 
 

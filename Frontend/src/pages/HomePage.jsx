@@ -56,7 +56,7 @@ const HomePage = () => {
             <div style={{ opacity: heroInView ? 1 : 0, transform: heroInView ? "translateX(0)" : "translateX(-40px)", transition: "all 0.8s cubic-bezier(0.16,1,0.3,1)" }}>
               <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "#e8f5e9", border: "1px solid #c8e6c9", borderRadius: 20, padding: "6px 14px", marginBottom: 22 }}>
                 <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#27ae60", display: "inline-block" }} />
-                <span style={{ fontSize: 12.5, fontWeight: 700, color: "#1e7e34", textTransform: "uppercase", letterSpacing: 1 }}>Rohini, New Delhi · Sector 18B</span>
+                <span style={{ fontSize: 12.5, fontWeight: 700, color: "#1e7e34", textTransform: "uppercase", letterSpacing: 1 }}>Rohini, New Delhi · Sector 18</span>
               </div>
               <h1 style={{ fontSize: "clamp(30px, 4vw, 52px)", fontWeight: 900, lineHeight: 1.15, color: "#1a3a5c", marginBottom: 10, fontFamily: "'Georgia', serif" }}>
                 Your Smile Deserves<br />
@@ -66,7 +66,7 @@ const HomePage = () => {
                 Planet H Dental — Where Smiles Begin.
               </h2>
               <p style={{ fontSize: 17, color: "#5d6d7e", lineHeight: 1.8, marginBottom: 34, maxWidth: 480 }}>
-                Dr. Sanjay Bajaj and our experienced team provide compassionate, state-of-the-art dental treatments — from routine cleanings to complex implants and RCT.
+              Dr. Sanjay Bajaj and our experienced team provide patient-focused, state-of-the-art dental treatments — from routine cleanings to complex implants and RCT.
               </p>
               <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
                 <button onClick={() => navigate("/contact")} style={{ background: "#e67e22", color: "white", padding: "14px 32px", borderRadius: 8, fontWeight: 700, fontSize: 15, border: "none", cursor: "pointer", boxShadow: "0 6px 20px rgba(230,126,34,0.35)" }}>
@@ -87,7 +87,7 @@ const HomePage = () => {
                   onError={e => { e.target.src = "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=600&q=80"; }}
                 />
                 <div style={{ position: "absolute", bottom: -20, left: -20, background: "white", borderRadius: 12, padding: "14px 18px", boxShadow: "0 8px 30px rgba(0,0,0,0.12)", minWidth: 160 }}>
-                  <div style={{ fontSize: 22, fontWeight: 900, color: "#27ae60" }}>⭐ 4.7</div>
+                  <div style={{ fontSize: 22, fontWeight: 900, color: "#27ae60" }}>⭐ 4.8</div>
                   <div style={{ fontSize: 12, color: "#5d6d7e", fontWeight: 600 }}>31+ Google Reviews</div>
                 </div>
                 <div style={{ position: "absolute", top: -16, right: -16, background: "#1a5276", borderRadius: 10, padding: "12px 16px", color: "white" }}>
@@ -107,7 +107,7 @@ const HomePage = () => {
             { value: c31 + "+", label: "Google Reviews" },
             { value: (c47 / 10).toFixed(1) + "★", label: "Star Rating" },
             { value: c12 + "+", label: "Treatments" },
-            { value: c1 + "", label: "Trusted Clinic" },
+            { value: "No.1", label: "Trusted Clinic" },
           ].map((s, i) => (
             <div key={i} style={{ opacity: statsInView ? 1 : 0, transform: statsInView ? "translateY(0)" : "translateY(30px)", transition: `all 0.6s ease ${i * 0.12}s`, padding: "24px 16px", borderRadius: 12, background: i % 2 === 0 ? "#f8fbff" : "white" }}>
               <div style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 900, color: "#27ae60", lineHeight: 1 }}>{s.value}</div>
@@ -133,7 +133,7 @@ const HomePage = () => {
             <h2 style={{ fontSize: "clamp(24px, 3vw, 36px)", fontWeight: 900, color: "#1a3a5c", fontFamily: "'Georgia', serif", marginBottom: 10 }}>Dr. Sanjay Bajaj</h2>
             <p style={{ color: "#27ae60", fontWeight: 700, fontSize: 15, marginBottom: 18 }}>Chief Dental Surgeon & Founder, Planet H Dental</p>
             <p style={{ color: "#5d6d7e", fontSize: 16, lineHeight: 1.85, marginBottom: 18 }}>
-              With years of expertise in complex dental procedures, Dr. Bajaj has built Planet H Dental into one of Rohini's most trusted practices. Highly praised for his gentle approach and exceptional results in RCT, implants, and smile design.
+            28+ years of experience in complex dental procedures, Dr. Bajaj has built Planet H Dental into one of Rohini's most trusted practices. Highly praised for his gentle approach and exceptional results in RCT, implants, and smile design.
             </p>
             <p style={{ color: "#5d6d7e", fontSize: 16, lineHeight: 1.85, marginBottom: 28, fontStyle: "italic" }}>
               "Every patient deserves a pain-free, comfortable experience. We use the latest technology to ensure the best outcomes for your oral health."

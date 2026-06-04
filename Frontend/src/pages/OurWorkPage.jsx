@@ -63,7 +63,7 @@ const OurWorkPage = () => {
       title: "Doctor's Cabin",
       tag: "Consultation Room",
       image: "/WhatsApp Image 2026-05-11 at 11.14.05 AM (1).jpeg",
-      desc: "Every treatment begins with a thorough consultation in our comfortable and welcoming doctor's cabin at Rohini Sector 18B.",
+      desc: "Every treatment begins with a thorough consultation in our comfortable and welcoming doctor's cabin at Rohini Sector 18.",
       tags: ["Detailed Consultation", "Treatment Planning", "Patient Education"],
     },
     {
@@ -76,8 +76,8 @@ const OurWorkPage = () => {
   ];
 
   const stats = [
-    { value: "500+", label: "Patients Treated" },
-    { value: "4.7★", label: "Google Rating" },
+    { value: "1500+", label: "Patients Treated" },
+    { value: "4.8★", label: "Google Rating" },
     { value: "31+", label: "5-Star Reviews" },
     { value: "4", label: "Specialists" },
   ];
@@ -91,7 +91,7 @@ const OurWorkPage = () => {
             Planet H Dental — A Closer Look
           </h1>
           <p style={{ color: "#5d6d7e", fontSize: 17, lineHeight: 1.8 }}>
-            Take a look inside Planet H Dental, Rohini Sector 18B — where modern facilities, expert specialists, and compassionate care come together.
+            Take a look inside Planet H Dental, Rohini Sector 18 — where modern facilities, expert specialists, and compassionate care come together.
           </p>
         </div>
       </section>

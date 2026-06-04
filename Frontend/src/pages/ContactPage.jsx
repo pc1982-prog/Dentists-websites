@@ -6,7 +6,7 @@ const ContactPage = () => {
   const [contentRef, contentInView] = useInView(0.15);
 
   // Click on map → opens Google Maps with exact pin on Planet H Dental
-  const MAPS_LINK = "https://maps.app.goo.gl/CpyuLtaTjwjXsv1FA";
+  const MAPS_LINK = "https://www.google.com/maps/place/Planet+H+Dental+%E2%80%93+Dr.+Sanjay+Bajaj+Dental+Care+Orthodontic+%26+Implant+Centre/@28.7379331,77.1376516,344m/data=!3m1!1e3!4m6!3m5!1s0x390d010e08d93a23:0x67490ae4eb762fc4!8m2!3d28.7373635!4d77.1375733!16s%2Fg%2F12mj_sh_z?entry=ttu";
 
   return (
     <div style={{ fontFamily: "'Lato','Helvetica Neue',sans-serif", background: "white", paddingTop: 68 }}>
@@ -42,16 +42,20 @@ const ContactPage = () => {
           {/* ── LEFT: Info ── */}
           <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
 
-          
+
 
             {/* Contact Info */}
             <div style={{ background: "white", borderRadius: 16, padding: "26px", boxShadow: "0 4px 24px rgba(0,0,0,0.07)", border: "1px solid #eaf0f6" }}>
               <h4 style={{ fontWeight: 800, color: "#1a3a5c", marginBottom: 20, fontSize: 16 }}>Contact Details</h4>
               {[
-                { icon: "📍", label: "Address", value: "B4 Rd, Pocket 3, Sector 18B, Rohini, New Delhi – 110089", href: MAPS_LINK },
+                { icon: "📍", label: "Address", value: "B2/18, opp. Metro Pillar 253, Pocket 3, Sector 18, Rohini, New Delhi – 110085", href: MAPS_LINK },
                 { icon: "📞", label: "Phone", value: "098100 77219", href: "tel:09810077219" },
                 { icon: "✉️", label: "Email", value: "info@planethDental.com", href: "mailto:info@planethDental.com" },
-                { icon: "🕐", label: "Hours", value: "Open Daily · Closes 8:30 PM" },
+                {
+                  icon: "🕐",
+                  label: "Hours",
+                  value: "Mon–Sat: Open Until 8:30 PM · Sunday: By Appointment Only"
+                }
               ].map((info, i) => (
                 <div key={i} style={{ display: "flex", gap: 13, marginBottom: i < 3 ? 16 : 0, paddingBottom: i < 3 ? 16 : 0, borderBottom: i < 3 ? "1px solid #f0f4f8" : "none" }}>
                   <div style={{ fontSize: 20, flexShrink: 0, marginTop: 1 }}>{info.icon}</div>
@@ -80,7 +84,7 @@ const ContactPage = () => {
               the exact Google Maps pin: https://maps.app.goo.gl/CpyuLtaTjwjXsv1FA
               
               The iframe uses Planet H Dental's place name + address as a search query
-              so Google Maps shows the correct red pin on Sector 18B Rohini.
+              so Google Maps shows the correct red pin on Sector 18 Rohini.
             */}
             <a
               href={MAPS_LINK}
@@ -90,7 +94,7 @@ const ContactPage = () => {
             >
               <iframe
                 title="Planet H Dental Location"
-                src="https://maps.google.com/maps?q=Planet+H+Dental,+B4+Rd,+Pocket+3,+Sector+18B,+Rohini,+New+Delhi,+Delhi+110089&output=embed&z=17&hl=en"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d344!2d77.1376516!3d28.7379331!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d010e08d93a23:0x67490ae4eb762fc4!2sPlanet+H+Dental!5e1!3m2!1sen!2sin!4v1"
                 width="100%"
                 height="430"
                 style={{ border: 0, display: "block", pointerEvents: "none" }}
@@ -123,7 +127,7 @@ const ContactPage = () => {
                 whiteSpace: "nowrap",
               }}>
                 <svg viewBox="0 0 24 24" fill="none" stroke="#1a5276" strokeWidth="2" width="16" height="16">
-                  <polygon points="3 11 22 2 13 21 11 13 3 11"/>
+                  <polygon points="3 11 22 2 13 21 11 13 3 11" />
                 </svg>
                 <span style={{ fontSize: 13, fontWeight: 700, color: "#1a3a5c" }}>Click to open in Google Maps</span>
               </div>
@@ -133,7 +137,7 @@ const ContactPage = () => {
             <div style={{ background: "#f8fbff", borderRadius: "0 0 14px 14px", padding: "16px 22px", border: "1px solid #eaf0f6", borderTop: "none", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 10 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
                 <span style={{ fontSize: 18 }}>📍</span>
-                <span style={{ fontSize: 13.5, fontWeight: 600, color: "#3d4e63" }}>B4 Rd, Pocket 3, Sector 18B, Rohini, New Delhi 110089</span>
+                <span style={{ fontSize: 13.5, fontWeight: 600, color: "#3d4e63" }}>  B2/18, opp. Metro Pillar 253, Pocket 3, Sector 18, Rohini, New Delhi 110085</span>
               </div>
               <a
                 href={MAPS_LINK}

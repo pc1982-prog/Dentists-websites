@@ -30,8 +30,8 @@ export const CTASection = () => {
             <button onClick={() => navigate("/contact")} style={{ background: "#e67e22", color: "white", padding: "15px 36px", borderRadius: 8, fontWeight: 700, fontSize: 16, border: "none", cursor: "pointer", boxShadow: "0 6px 24px rgba(230,126,34,0.45)" }}>
               Book Appointment
             </button>
-            <a href="tel:09810077219" style={{ background: "rgba(255,255,255,0.12)", color: "white", padding: "15px 28px", borderRadius: 8, fontWeight: 700, fontSize: 15, border: "2px solid rgba(255,255,255,0.3)", textDecoration: "none", display: "flex", alignItems: "center", gap: 8 }}>
-              📞 098100 77219
+            <a href="tel:9810077219" style={{ background: "rgba(255,255,255,0.12)", color: "white", padding: "15px 28px", borderRadius: 8, fontWeight: 700, fontSize: 15, border: "2px solid rgba(255,255,255,0.3)", textDecoration: "none", display: "flex", alignItems: "center", gap: 8 }}>
+              📞 98100 77219
             </a>
           </div>
         </div>
