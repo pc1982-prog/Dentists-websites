@@ -31,7 +31,7 @@ const HomePage = () => {
   const [drRef, drInView] = useInView(0.15);
 
   const c31 = useCounter(31, 3100, statsInView);
-  const c47 = useCounter(47, 2000, statsInView);
+  const c47 = useCounter(48, 2000, statsInView);
   const c12 = useCounter(12, 1400, statsInView);
   const c1 = useCounter(1, 600, statsInView);
 
