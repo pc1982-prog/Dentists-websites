@@ -30,7 +30,7 @@ const HomePage = () => {
   const [statsRef, statsInView] = useInView(0.3);
   const [drRef, drInView] = useInView(0.15);
 
-  const c31 = useCounter(31, 3100, statsInView);
+  const c31 = useCounter(100, 3100, statsInView);
   const c47 = useCounter(48, 2000, statsInView);
   const c12 = useCounter(12, 1400, statsInView);
   const c1 = useCounter(1, 600, statsInView);
@@ -88,7 +88,7 @@ const HomePage = () => {
                 />
                 <div style={{ position: "absolute", bottom: -20, left: -20, background: "white", borderRadius: 12, padding: "14px 18px", boxShadow: "0 8px 30px rgba(0,0,0,0.12)", minWidth: 160 }}>
                   <div style={{ fontSize: 22, fontWeight: 900, color: "#27ae60" }}>⭐ 4.8</div>
-                  <div style={{ fontSize: 12, color: "#5d6d7e", fontWeight: 600 }}>31+ Google Reviews</div>
+                  <div style={{ fontSize: 12, color: "#5d6d7e", fontWeight: 600 }}>100+ Google Reviews</div>
                 </div>
                 <div style={{ position: "absolute", top: -16, right: -16, background: "#1a5276", borderRadius: 10, padding: "12px 16px", color: "white" }}>
                   <div style={{ fontSize: 20, fontWeight: 900 }}>🦷 RCT</div>

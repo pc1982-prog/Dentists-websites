@@ -78,7 +78,7 @@ const OurWorkPage = () => {
   const stats = [
     { value: "1500+", label: "Patients Treated" },
     { value: "4.8★", label: "Google Rating" },
-    { value: "31+", label: "5-Star Reviews" },
+    { value: "100+", label: "5-Star Reviews" },
     { value: "4", label: "Specialists" },
   ];
 

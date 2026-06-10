@@ -13,7 +13,7 @@ const AboutPage = () => {
   const [statsRef, statsInView] = useInView(0.3);
 
   const cRating = useCounter(48, 1800, statsInView);
-  const cReviews = useCounter(31, 1600, statsInView);
+  const cReviews = useCounter(100, 1600, statsInView);
   const cServices = useCounter(28, 1400, statsInView);
   const cSatisfaction = useCounter(100, 2000, statsInView);
 
@@ -54,7 +54,7 @@ const AboutPage = () => {
     { icon: "🔬", title: "Advanced Technology", desc: "Digital X-rays, modern implant systems, and up-to-date sterilization protocols ensure safe, precise, effective treatment." },
     { icon: "💬", title: "Clear Communication", desc: "We explain every step in plain language, so you always know exactly what's happening and what to expect." },
     { icon: "🦷", title: "Complete Under One Roof", desc: "From routine cleanings to full-mouth restoration — we handle everything so you don't need to visit multiple specialists." },
-    { icon: "⭐", title: "Proven Results", desc: "Rated 4.8 stars on Google with 31+ reviews. Our patients consistently praise our results and caring approach." },
+    { icon: "⭐", title: "Proven Results", desc: "Rated 4.8 stars on Google with 100+ reviews. Our patients consistently praise our results and caring approach." },
   ];
 
   return (
