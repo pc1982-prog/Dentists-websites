@@ -19,11 +19,12 @@ const Navbar = () => {
   }, [location.pathname]);
 
   const links = [
-    { name: "Home", path: "/" },
+    { name: "Home",     path: "/" },
     { name: "Services", path: "/services" },
     { name: "Our Work", path: "/our-work" },
-    { name: "About", path: "/about" },
-    { name: "Contact", path: "/contact" },
+    { name: "Our Team", path: "/our-team" },   // ← ADDED
+    { name: "About",    path: "/about" },
+    { name: "Contact",  path: "/contact" },
   ];
 
   const isActive = (path) => {

@@ -5,11 +5,11 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
 import HomePage from "./pages/HomePage";
-// import ServicesOverlapPage from "./pages/ServicesOverlappages";
 import OurWorkPage from "./pages/OurWorkPage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import ServicesPage from "./pages/ServicesPage";
+import TeamPage from "./pages/Teampage";   // ← ADDED
 
 export default function App() {
   return (
@@ -31,11 +31,12 @@ export default function App() {
         
         <main>
           <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/services" element={<ServicesPage />} />
-            <Route path="/our-work" element={<OurWorkPage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/"          element={<HomePage />} />
+            <Route path="/services"  element={<ServicesPage />} />
+            <Route path="/our-work"  element={<OurWorkPage />} />
+            <Route path="/our-team"  element={<TeamPage />} />   {/* ← ADDED */}
+            <Route path="/about"     element={<AboutPage />} />
+            <Route path="/contact"   element={<ContactPage />} />
             
             {/* Redirect any unknown routes to home */}
             <Route path="*" element={<Navigate to="/" replace />} />
