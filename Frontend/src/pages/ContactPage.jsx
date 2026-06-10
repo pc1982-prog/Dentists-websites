@@ -50,7 +50,7 @@ const ContactPage = () => {
               {[
                 { icon: "📍", label: "Address", value: "B2/18, opp. Metro Pillar 253, Pocket 3, Sector 18, Rohini, New Delhi – 110085", href: MAPS_LINK },
                 { icon: "📞", label: "Phone", value: "098100 77219", href: "tel:09810077219" },
-                { icon: "✉️", label: "Email", value: "info@planethDental.com", href: "mailto:info@planethDental.com" },
+                { icon: "✉️", label: "Email", value: "drsanjaybajajplaneth@gmail.com", href: "mailto:drsanjaybajajplaneth@gmail.com" },
                 {
                   icon: "🕐",
                   label: "Hours",

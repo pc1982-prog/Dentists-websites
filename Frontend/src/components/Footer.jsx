@@ -21,7 +21,7 @@ const Footer = () => (
             <a href="tel:9810077219" style={{ color: "white", textDecoration: "none", fontWeight: 700, fontSize: 15 }}>📞 98100 77219</a>
           </div>
           <div style={{ marginTop: 8 }}>
-            <a href="mailto:info@planeth dental.com" style={{ color: "rgba(255,255,255,0.65)", textDecoration: "none", fontSize: 13.5 }}>✉️ info@planethDental.com</a>
+            <a href="mailto:drsanjaybajajplaneth@gmail.com" style={{ color: "rgba(255,255,255,0.65)", textDecoration: "none", fontSize: 13.5 }}>✉️ drsanjaybajajplaneth@gmail.com</a>
           </div>
         </div>
 
